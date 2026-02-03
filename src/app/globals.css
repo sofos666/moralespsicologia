@@ -63,11 +63,25 @@
 }
 
 @layer base {
+  html {
+    background-color: #0a0a0b !important;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overscroll-behavior: none;
+  }
+
   body {
     @apply antialiased;
-    background-color: transparent;
+    background-color: transparent !important;
     color: var(--foreground);
     font-family: var(--font-outfit), sans-serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: env(safe-area-inset-bottom);
+    margin: 0;
+    padding: 0;
   }
 
   ::selection {
@@ -246,31 +260,7 @@
   }
 }
 
-/* Critical Layer: Full viewport coverage for all devices including iOS Safari */
-html {
-  background-color: #0a0a0b !important;
-  margin: 0;
-  padding: 0;
-  /* Use dvh for iOS Safari dynamic viewport, fallback to vh */
-  min-height: 100vh;
-  min-height: 100dvh;
-  /* Prevent overscroll bounce showing white */
-  overscroll-behavior: none;
-}
 
-body {
-  background-color: transparent !important;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  min-height: 100dvh;
-  /* Prevent iOS rubber-banding showing white gaps */
-  overscroll-behavior-y: none;
-  /* Better touch scrolling on iOS */
-  -webkit-overflow-scrolling: touch;
-  /* Ensure safe area padding on notched devices */
-  padding-bottom: env(safe-area-inset-bottom);
-}
 
 /* iOS Safari modal scrolling fix */
 .modal-scroll-ios {

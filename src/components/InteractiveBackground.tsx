@@ -111,6 +111,20 @@ export const InteractiveBackground = memo(() => {
 
         // ... intermediate code ...
 
+        // Active impulses traveling along connections
+        const impulses: Impulse[] = [];
+        let impulseIdCounter = 0;
+
+        const createImpulse = (fromIndex: number, toIndex: number) => {
+            impulses.push({
+                from: fromIndex,
+                to: toIndex,
+                progress: 0,
+                speed: 0.015 + Math.random() * 0.025, // Impulsos rápidos
+                id: impulseIdCounter++,
+            });
+        };
+
         const updateNeurons = () => {
             // ...
         }

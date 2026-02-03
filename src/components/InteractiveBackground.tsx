@@ -92,54 +92,38 @@ export const InteractiveBackground = memo(() => {
         // Detectar si es móvil para reducir carga
         const isMobile = window.innerWidth < 768;
 
-        // Configuration - Super Optimized for Performance
+        // Configuration - Super Optimized for Performance but VISIBLE
         const NEURON_COUNT = isMobile
-            ? Math.min(25, Math.floor((canvas.width * canvas.height) / 25000)) // Mobile: ~25 neurons (increased from 15)
-            : Math.min(45, Math.floor((canvas.width * canvas.height) / 20000)); // Desktop: ~45 neurons
+            ? Math.min(35, Math.floor((canvas.width * canvas.height) / 15000)) // Mobile: ~35 neurons (More density)
+            : Math.min(50, Math.floor((canvas.width * canvas.height) / 18000)); // Desktop
 
-        const CONNECTION_DISTANCE = isMobile ? 110 : 160; // Slightly shorter on mobile to keep density but performant
-        const IMPULSE_CHANCE = isMobile ? 0.02 : 0.03; // Increased activity on mobile
+        const CONNECTION_DISTANCE = isMobile ? 140 : 160; // Longer connections on mobile to ensure mesh
+        const IMPULSE_CHANCE = isMobile ? 0.04 : 0.03; // More activity
 
         // Neurons (nodes)
         const neurons: Neuron[] = Array.from({ length: NEURON_COUNT }, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * (isMobile ? 0.4 : 0.4),
-            vy: (Math.random() - 0.5) * (isMobile ? 0.4 : 0.4),
-            size: Math.random() * 3 + 2,
+            vx: (Math.random() - 0.5) * (isMobile ? 0.5 : 0.4),
+            vy: (Math.random() - 0.5) * (isMobile ? 0.5 : 0.4),
+            size: Math.random() * 3 + (isMobile ? 2.5 : 2), // Slightly larger on mobile
         }));
 
-        // Active impulses traveling along connections
-        const impulses: Impulse[] = [];
-        let impulseIdCounter = 0;
+        // ... intermediate code ...
 
         const updateNeurons = () => {
-            neurons.forEach(neuron => {
-                neuron.x += neuron.vx;
-                neuron.y += neuron.vy;
+            // ...
+        }
 
-                // Bounce off walls
-                if (neuron.x < 0 || neuron.x > canvas.width) neuron.vx *= -1;
-                if (neuron.y < 0 || neuron.y > canvas.height) neuron.vy *= -1;
-            });
-        };
-
-        const createImpulse = (fromIndex: number, toIndex: number) => {
-            impulses.push({
-                from: fromIndex,
-                to: toIndex,
-                progress: 0,
-                speed: 0.015 + Math.random() * 0.025, // Impulsos rápidos
-                id: impulseIdCounter++,
-            });
-        };
+        // ...
 
         const drawConnection = (neuronA: Neuron, neuronB: Neuron, opacity: number) => {
             ctx.beginPath();
             ctx.moveTo(neuronA.x, neuronA.y);
             ctx.lineTo(neuronB.x, neuronB.y);
-            ctx.strokeStyle = `rgba(${baseColor}, ${opacity * (isMobile ? 0.5 : 0.15)})`; // Much more visible on mobile
-            ctx.lineWidth = isMobile ? 1.2 : 0.8; // Thicker lines on mobile
+            // HUGE boost for mobile visibility
+            ctx.strokeStyle = `rgba(${baseColor}, ${opacity * (isMobile ? 0.6 : 0.15)})`;
+            ctx.lineWidth = isMobile ? 1.5 : 0.8;
             ctx.stroke();
         };
 

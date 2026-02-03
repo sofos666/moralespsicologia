@@ -128,7 +128,7 @@ export function NewsFeed() {
                     </p>
                 </div>
 
-                {/* Navigation Arrows - Hidden on mobile, visible on desktop */}
+                {/* Navigation Arrows - Desktop */}
                 <div className="hidden md:flex items-center gap-2">
                     <motion.button
                         whileHover={{ scale: 1.1 }}
@@ -161,14 +161,6 @@ export function NewsFeed() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                     </motion.button>
-                </div>
-
-                {/* Mobile Swipe Hint */}
-                <div className="md:hidden flex items-center gap-2 text-emerald-400 text-xs animate-pulse opacity-80">
-                    <span>Desliza para ver más</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
                 </div>
             </div>
 
@@ -246,6 +238,30 @@ export function NewsFeed() {
                 {/* Gradient fade edges */}
                 <div className="absolute left-0 top-0 bottom-4 w-6 bg-gradient-to-r from-black/80 to-transparent pointer-events-none" />
                 <div className="absolute right-0 top-0 bottom-4 w-6 bg-gradient-to-l from-black/80 to-transparent pointer-events-none" />
+            </div>
+
+            {/* Mobile Navigation Arrows (Centered Below) */}
+            <div className="flex md:hidden items-center justify-center gap-6 mt-4">
+                <button
+                    onClick={() => scroll('left')}
+                    disabled={!canScrollLeft}
+                    className={`p-3 rounded-full border border-white/10 transition-all ${canScrollLeft ? 'bg-white/10 text-white active:scale-90' : 'bg-transparent text-gray-600 opacity-50'}`}
+                    aria-label="Anterior"
+                >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button
+                    onClick={() => scroll('right')}
+                    disabled={!canScrollRight}
+                    className={`p-3 rounded-full border border-white/10 transition-all ${canScrollRight ? 'bg-white/10 text-white active:scale-90' : 'bg-transparent text-gray-600 opacity-50'}`}
+                    aria-label="Siguiente"
+                >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </div>
         </div>
     );

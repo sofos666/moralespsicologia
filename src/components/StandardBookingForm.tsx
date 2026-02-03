@@ -29,20 +29,17 @@ export const StandardBookingForm: React.FC<StandardBookingFormProps> = ({ onClos
         setErrorMessage('');
 
         try {
-            const response = await fetch("https://formspree.io/f/mqaeodlo", {
+            const response = await fetch("/api/automation", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    _subject: `📍 Lead Cita: ${formData.name} (${therapyTitle || 'General'})`,
-                    _replyto: formData.email,
-                    source_form: "Cita Standard / Terapias",
-                    service_requested: therapyTitle || "Psicoterapia General",
-                    client_name: formData.name,
-                    client_email: formData.email,
-                    client_whatsapp: formData.whatsapp,
-                    modality: formData.modality,
-                    motive: formData.motive,
-                    database_action: "CREATE_LEAD"
+                    formType: 'presencial',
+                    name: formData.name,
+                    email: formData.email,
+                    whatsapp: formData.whatsapp,
+                    category: therapyTitle || 'Psicoterapia General',
+                    message: formData.motive,
+                    modality: formData.modality
                 })
             });
 

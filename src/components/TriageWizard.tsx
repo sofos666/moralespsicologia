@@ -179,6 +179,7 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
         const resultLabel = calculateResult().label;
         const feedbackMessage = FEEDBACK_MESSAGES[category][level];
 
+        // Mensaje para WhatsApp
         const message = `Hola Psic. Cristian, acabo de realizar el *Triaje Virtual* en su sitio web.\n\n` +
             `*RESULTADOS:*\n` +
             `📂 *Categoría:* ${category}\n` +
@@ -191,22 +192,24 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/573014975393?text=${encodedMessage}`;
 
+        // Datos para la API de automatización (Google Sheets + Email)
+        const automationData = {
+            formType: 'triaje' as const,
+            name: formData.name,
+            email: formData.email,
+            whatsapp: formData.whatsapp,
+            category,
+            score,
+            result: resultLabel,
+            feedback: feedbackMessage
+        };
+
         try {
-            await fetch("https://formspree.io/f/mqaeodlo", {
+            // Enviar a API de automatización
+            await fetch("/api/automation", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    _subject: `Triaje ${category}: ${formData.name} (${resultLabel})`,
-                    _replyto: formData.email,
-                    category,
-                    score,
-                    result: resultLabel,
-                    client_name: formData.name,
-                    client_email: formData.email,
-                    client_whatsapp: formData.whatsapp,
-                    generated_feedback: feedbackMessage,
-                    database_action: "CREATE_LEAD"
-                })
+                body: JSON.stringify(automationData)
             });
 
             setFormStatus('success');

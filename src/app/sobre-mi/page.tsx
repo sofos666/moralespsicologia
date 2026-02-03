@@ -126,7 +126,7 @@ export default function SobreMiPage() {
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="relative aspect-[3/4] max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 my-8"
+                            className="relative aspect-[3/4] max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 my-8 md:hidden"
                         >
                             <img
                                 src="/images/perfil/via_lactea_isla.png"

@@ -26,14 +26,13 @@ export default function SobreMiPage() {
                     </motion.div>
 
                     <div className="grid lg:grid-cols-2 gap-12 items-start">
-                        {/* Foto Principal */}
+                        {/* Foto Principal - Solo visible en desktop */}
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group"
+                            className="hidden md:block relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group"
                         >
-                            {/* Placeholder para foto de perfil - Usando una imagen genérica por ahora o la del lobby si prefieres */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
                             <img
                                 src="/images/perfil/via_lactea_isla.png"
@@ -121,6 +120,21 @@ export default function SobreMiPage() {
                         <p className="text-gray-300 text-lg leading-relaxed font-light max-w-2xl mx-auto">
                             Paralelamente a mi ejercicio clínico, mantengo un vínculo activo con la fotografía, especialmente de naturaleza y astrofotografía, como una forma de mirada y elaboración simbólica. Concibo la creación artística como una vía de sublimación, que permite transformar la experiencia, dar forma a lo indecible y abrir nuevas posibilidades de sentido.
                         </p>
+
+                        {/* Fotografía destacada - Formato vertical */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="relative aspect-[3/4] max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 my-8"
+                        >
+                            <img
+                                src="/images/perfil/via_lactea_isla.png"
+                                alt="Fotografía de naturaleza y astrofotografía por Cristian Morales"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                        </motion.div>
 
                         <p className="text-gray-300 text-lg leading-relaxed font-light max-w-2xl mx-auto">
                             Esta sensibilidad estética dialoga con mi práctica clínica, sin sustituirla, aportando una atención cuidadosa al detalle, al silencio y a lo que no siempre se dice con palabras.

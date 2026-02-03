@@ -26,7 +26,7 @@ export default function UbicacionPage() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-center mb-16"
+                    className="text-center mb-12"
                 >
                     <h1 className="text-4xl md:text-6xl font-bold font-serif mb-6 text-gradient">
                         Espacios de Bienestar
@@ -45,7 +45,7 @@ export default function UbicacionPage() {
                 >
                     <div className="relative z-10 grid md:grid-cols-2 gap-12">
                         <div>
-                            <h2 className="text-3xl font-bold text-white mb-6">Seele – Espacios de bienestar</h2>
+                            <h2 className="text-3xl font-bold text-white mb-8">Seele</h2>
                             <div className="space-y-4 text-gray-300">
                                 <p className="flex items-start gap-3">
                                     <svg className="w-6 h-6 text-emerald-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -86,68 +86,17 @@ export default function UbicacionPage() {
                     </div>
                 </motion.div>
 
-                {/* Directions Details */}
-                <div className="grid md:grid-cols-3 gap-6 mb-16">
-                    {/* Car */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="bg-black/20 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:bg-black/30 transition-colors"
-                    >
-                        <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4 text-blue-400">
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m10 0a2 2 0 104 0m-4 0a2 2 0 114 0" /></svg>
-                        </div>
-                        <h3 className="text-lg font-bold text-white mb-2">Vehículo Particular</h3>
-                        <p className="text-sm text-gray-400 leading-relaxed">
-                            Sentido oriente-occidente: tomar Av. Bolivariana hasta glorieta de Bulerías, retornar hasta entrada principal de Unicentro. Voltear derecha, pasar primera cuadra. Seele está en la esq. mano izquierda, 2do piso.
-                        </p>
-                    </motion.div>
-
-                    {/* Taxi */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="bg-black/20 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:bg-black/30 transition-colors"
-                    >
-                        <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mb-4 text-yellow-400">
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </div>
-                        <h3 className="text-lg font-bold text-white mb-2">Taxi</h3>
-                        <p className="text-sm text-gray-400 leading-relaxed">
-                            Indicar al conductor: Entrada principal Unicentro por Av. Bolivariana, bajar hasta la esquina y derecha. O por Carrera 65D (canalización) hasta calle 34B, derecha y al finalizar cuadra a mano derecha.
-                        </p>
-                    </motion.div>
-
-                    {/* Public Transport */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="bg-black/20 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:bg-black/30 transition-colors"
-                    >
-                        <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-4 text-purple-400">
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
-                        </div>
-                        <h3 className="text-lg font-bold text-white mb-2">Transporte Público</h3>
-                        <p className="text-sm text-gray-400 leading-relaxed">
-                            Metro estación Santa Lucia, Aguacatala o Exposiciones + integrado a Unicentro. Rutas: Laureles 192/193, Belén 170-178, Circular Coonatra 300/301.
-                        </p>
-                    </motion.div>
-                </div>
-
-                {/* Gallery Carousel */}
+                {/* Gallery - Nuestras Instalaciones (ahora después de la tarjeta principal) */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="relative"
+                    transition={{ delay: 0.2 }}
+                    className="relative mb-16"
                 >
-                    <h3 className="text-2xl font-serif text-white mb-8 text-center">Nuestras Instalaciones</h3>
+                    <h3 className="text-2xl font-serif text-white mb-8 text-center">Instalaciones</h3>
 
                     {/* Carousel Container */}
-                    <div className="relative group">
+                    <div className="relative group max-w-4xl mx-auto">
                         {/* Left Arrow */}
                         <button
                             onClick={() => {
@@ -204,6 +153,74 @@ export default function UbicacionPage() {
                         </p>
                     </div>
                 </motion.div>
+
+                {/* Directions Details - Grid 2x2 */}
+                <h3 className="text-2xl font-serif text-white mb-6 text-center">Cómo Llegar</h3>
+                <div className="grid grid-cols-2 gap-4 md:gap-6 mb-8">
+                    {/* Car */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="bg-black/20 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-white/5 hover:bg-black/30 transition-colors"
+                    >
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-3 md:mb-4 text-blue-400">
+                            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m10 0a2 2 0 104 0m-4 0a2 2 0 114 0" /></svg>
+                        </div>
+                        <h3 className="text-base md:text-lg font-bold text-white mb-2">Vehículo</h3>
+                        <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
+                            Av. Bolivariana hasta glorieta Bulerías, retornar a Unicentro. Derecha, pasar cuadra. Seele 2do piso.
+                        </p>
+                    </motion.div>
+
+                    {/* Taxi */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.35 }}
+                        className="bg-black/20 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-white/5 hover:bg-black/30 transition-colors"
+                    >
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mb-3 md:mb-4 text-yellow-400">
+                            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 className="text-base md:text-lg font-bold text-white mb-2">Taxi</h3>
+                        <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
+                            Entrada Unicentro por Av. Bolivariana, bajar a la esquina y derecha. O por Cra 65D hasta calle 34B.
+                        </p>
+                    </motion.div>
+
+                    {/* Public Transport */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className="bg-black/20 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-white/5 hover:bg-black/30 transition-colors"
+                    >
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-3 md:mb-4 text-purple-400">
+                            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                        </div>
+                        <h3 className="text-base md:text-lg font-bold text-white mb-2">Transporte</h3>
+                        <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
+                            Metro: Santa Lucia, Aguacatala o Exposiciones + integrado. Rutas: 192/193, 170-178, 300/301.
+                        </p>
+                    </motion.div>
+
+                    {/* Walking */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.45 }}
+                        className="bg-black/20 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-white/5 hover:bg-black/30 transition-colors"
+                    >
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mb-3 md:mb-4 text-emerald-400">
+                            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h3 className="text-base md:text-lg font-bold text-white mb-2">Caminando</h3>
+                        <p className="text-xs md:text-sm text-gray-400 leading-relaxed">
+                            Desde Unicentro salida Av. Bolivariana, derecha, cruzar acera izquierda, una cuadra hasta Vap, 2do piso.
+                        </p>
+                    </motion.div>
+                </div>
 
             </div>
 

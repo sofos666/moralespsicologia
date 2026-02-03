@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,6 +8,31 @@ import { motion, AnimatePresence } from "framer-motion";
 export const Navbar = () => {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+
+    // Cerrar menú al hacer clic fuera
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+            if (
+                isOpen &&
+                menuRef.current &&
+                buttonRef.current &&
+                !menuRef.current.contains(event.target as Node) &&
+                !buttonRef.current.contains(event.target as Node)
+            ) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('touchstart', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('touchstart', handleClickOutside);
+        };
+    }, [isOpen]);
 
     const links = [
         { href: "/", label: "Inicio" },
@@ -45,6 +70,7 @@ export const Navbar = () => {
             {/* Mobile Menu Button */}
             <div className="md:hidden pointer-events-auto absolute top-4 right-4 z-50">
                 <button
+                    ref={buttonRef}
                     onClick={() => setIsOpen(!isOpen)}
                     className="p-3 bg-white/10 backdrop-blur-md rounded-full border border-white/10 text-white shadow-lg"
                     aria-label="Menu"
@@ -61,6 +87,7 @@ export const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
+                        ref={menuRef}
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}

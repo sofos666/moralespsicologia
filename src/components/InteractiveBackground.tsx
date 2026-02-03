@@ -94,17 +94,17 @@ export const InteractiveBackground = memo(() => {
         const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
 
         // ═══════════════════════════════════════════════════════════════════════
-        // 📱 CONFIGURACIÓN MÓVIL - Optimizada para pantallas pequeñas y táctiles
+        // 📱 CONFIGURACIÓN MÓVIL - Sutil, como el nudo borromeo
         // ═══════════════════════════════════════════════════════════════════════
         const mobileConfig = {
-            neuronDensityDivisor: 12000,  // Mayor densidad (número más bajo = más neuronas)
-            maxNeurons: 45,               // Más neuronas para cubrir mejor la pantalla
-            connectionDistance: 160,      // Conexiones más largas para asegurar malla visible
-            impulseChance: 0.045,         // Más actividad para efecto visual atractivo
-            neuronSpeed: 0.45,            // Velocidad moderada
-            neuronBaseSize: 2.8,          // Ligeramente más grandes para visibilidad
-            connectionOpacityMultiplier: 0.65, // Mayor opacidad para visibilidad
-            connectionLineWidth: 1.6,     // Líneas más gruesas
+            neuronDensityDivisor: 8000,   // Más neuronas pero más pequeñas y distribuidas
+            maxNeurons: 60,               // Más neuronas para mejor distribución
+            connectionDistance: 120,      // Conexiones más cortas para evitar saturación visual
+            impulseChance: 0.025,         // Menos actividad para efecto más sutil
+            neuronSpeed: 0.3,             // Velocidad más lenta y calmada
+            neuronBaseSize: 1.5,          // Mucho más pequeñas (antes 2.8)
+            connectionOpacityMultiplier: 0.15, // Misma intensidad que el nudo borromeo (antes 0.65)
+            connectionLineWidth: 0.6,     // Líneas muy finas (antes 1.6)
         };
 
         // ═══════════════════════════════════════════════════════════════════════

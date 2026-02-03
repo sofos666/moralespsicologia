@@ -109,7 +109,7 @@ export const InteractiveBackground = memo(() => {
             size: Math.random() * 3 + (isMobile ? 2.5 : 2), // Slightly larger on mobile
         }));
 
-        // ... intermediate code ...
+
 
         // Active impulses traveling along connections
         const impulses: Impulse[] = [];
@@ -126,10 +126,17 @@ export const InteractiveBackground = memo(() => {
         };
 
         const updateNeurons = () => {
-            // ...
-        }
+            neurons.forEach(neuron => {
+                neuron.x += neuron.vx;
+                neuron.y += neuron.vy;
 
-        // ...
+                // Bounce off walls
+                if (neuron.x < 0 || neuron.x > canvas.width) neuron.vx *= -1;
+                if (neuron.y < 0 || neuron.y > canvas.height) neuron.vy *= -1;
+            });
+        };
+
+
 
         const drawConnection = (neuronA: Neuron, neuronB: Neuron, opacity: number) => {
             ctx.beginPath();

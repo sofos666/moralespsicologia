@@ -94,18 +94,18 @@ export const InteractiveBackground = memo(() => {
 
         // Configuration - Super Optimized for Performance
         const NEURON_COUNT = isMobile
-            ? Math.min(15, Math.floor((canvas.width * canvas.height) / 35000)) // Mobile: ~15 neurons
+            ? Math.min(25, Math.floor((canvas.width * canvas.height) / 25000)) // Mobile: ~25 neurons (increased from 15)
             : Math.min(45, Math.floor((canvas.width * canvas.height) / 20000)); // Desktop: ~45 neurons
 
-        const CONNECTION_DISTANCE = isMobile ? 120 : 160; // Shorter connections = fewer lines to draw
-        const IMPULSE_CHANCE = isMobile ? 0.01 : 0.03; // Fewer active impulses
+        const CONNECTION_DISTANCE = isMobile ? 110 : 160; // Slightly shorter on mobile to keep density but performant
+        const IMPULSE_CHANCE = isMobile ? 0.02 : 0.03; // Increased activity on mobile
 
         // Neurons (nodes)
         const neurons: Neuron[] = Array.from({ length: NEURON_COUNT }, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.4),
-            vy: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.4),
+            vx: (Math.random() - 0.5) * (isMobile ? 0.4 : 0.4),
+            vy: (Math.random() - 0.5) * (isMobile ? 0.4 : 0.4),
             size: Math.random() * 3 + 2,
         }));
 
@@ -138,7 +138,7 @@ export const InteractiveBackground = memo(() => {
             ctx.beginPath();
             ctx.moveTo(neuronA.x, neuronA.y);
             ctx.lineTo(neuronB.x, neuronB.y);
-            ctx.strokeStyle = `rgba(${baseColor}, ${opacity * 0.1})`; // ✅ Reducido de 0.3 a 0.1 (~33%)
+            ctx.strokeStyle = `rgba(${baseColor}, ${opacity * (isMobile ? 0.2 : 0.15)})`; // Increased opacity for mobile visibility
             ctx.lineWidth = 0.8;
             ctx.stroke();
         };

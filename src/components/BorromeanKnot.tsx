@@ -22,7 +22,7 @@ export const BorromeanKnot = () => {
             : '255, 255, 255'; // White
 
     return (
-        <div className="fixed left-8 top-1/2 -translate-y-1/2 z-0 pointer-events-none hidden md:block">
+        <div className="fixed left-1/2 md:left-8 top-1/2 -translate-x-1/2 md:translate-x-0 -translate-y-1/2 z-0 pointer-events-none opacity-40 md:opacity-100 scale-75 md:scale-100">
             <svg
                 width="450"
                 height="450"

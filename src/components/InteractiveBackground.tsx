@@ -89,24 +89,70 @@ export const InteractiveBackground = memo(() => {
 
         resizeCanvas();
 
-        // Detectar si es móvil para reducir carga
+        // Detectar tipo de dispositivo
         const isMobile = window.innerWidth < 768;
+        const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
 
-        // Configuration - Super Optimized for Performance but VISIBLE
-        const NEURON_COUNT = isMobile
-            ? Math.min(35, Math.floor((canvas.width * canvas.height) / 15000)) // Mobile: ~35 neurons (More density)
-            : Math.min(80, Math.floor((canvas.width * canvas.height) / 15000)); // Desktop: ~80 neurons (Restored from backup)
+        // ═══════════════════════════════════════════════════════════════════════
+        // 📱 CONFIGURACIÓN MÓVIL - Optimizada para pantallas pequeñas y táctiles
+        // ═══════════════════════════════════════════════════════════════════════
+        const mobileConfig = {
+            neuronDensityDivisor: 12000,  // Mayor densidad (número más bajo = más neuronas)
+            maxNeurons: 45,               // Más neuronas para cubrir mejor la pantalla
+            connectionDistance: 160,      // Conexiones más largas para asegurar malla visible
+            impulseChance: 0.045,         // Más actividad para efecto visual atractivo
+            neuronSpeed: 0.45,            // Velocidad moderada
+            neuronBaseSize: 2.8,          // Ligeramente más grandes para visibilidad
+            connectionOpacityMultiplier: 0.65, // Mayor opacidad para visibilidad
+            connectionLineWidth: 1.6,     // Líneas más gruesas
+        };
 
-        const CONNECTION_DISTANCE = isMobile ? 140 : 160; // Longer connections on mobile to ensure mesh
-        const IMPULSE_CHANCE = isMobile ? 0.04 : 0.03; // More activity
+        // ═══════════════════════════════════════════════════════════════════════
+        // 📟 CONFIGURACIÓN TABLET - Balance entre móvil y desktop
+        // ═══════════════════════════════════════════════════════════════════════
+        const tabletConfig = {
+            neuronDensityDivisor: 14000,
+            maxNeurons: 60,
+            connectionDistance: 155,
+            impulseChance: 0.035,
+            neuronSpeed: 0.42,
+            neuronBaseSize: 2.5,
+            connectionOpacityMultiplier: 0.4,
+            connectionLineWidth: 1.2,
+        };
 
-        // Neurons (nodes)
+        // ═══════════════════════════════════════════════════════════════════════
+        // 🖥️ CONFIGURACIÓN DESKTOP - Experiencia completa y fluida
+        // ═══════════════════════════════════════════════════════════════════════
+        const desktopConfig = {
+            neuronDensityDivisor: 15000,
+            maxNeurons: 90,
+            connectionDistance: 165,
+            impulseChance: 0.03,
+            neuronSpeed: 0.4,
+            neuronBaseSize: 2,
+            connectionOpacityMultiplier: 0.15,
+            connectionLineWidth: 0.8,
+        };
+
+        // Seleccionar configuración según dispositivo
+        const config = isMobile ? mobileConfig : isTablet ? tabletConfig : desktopConfig;
+
+        // Calcular neuronas basado en área de pantalla
+        const NEURON_COUNT = Math.min(
+            config.maxNeurons,
+            Math.floor((canvas.width * canvas.height) / config.neuronDensityDivisor)
+        );
+        const CONNECTION_DISTANCE = config.connectionDistance;
+        const IMPULSE_CHANCE = config.impulseChance;
+
+        // Neurons (nodes) con configuración específica por dispositivo
         const neurons: Neuron[] = Array.from({ length: NEURON_COUNT }, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * (isMobile ? 0.5 : 0.4),
-            vy: (Math.random() - 0.5) * (isMobile ? 0.5 : 0.4),
-            size: Math.random() * 3 + (isMobile ? 2.5 : 2), // Slightly larger on mobile
+            vx: (Math.random() - 0.5) * config.neuronSpeed,
+            vy: (Math.random() - 0.5) * config.neuronSpeed,
+            size: Math.random() * 3 + config.neuronBaseSize,
         }));
 
 
@@ -142,9 +188,9 @@ export const InteractiveBackground = memo(() => {
             ctx.beginPath();
             ctx.moveTo(neuronA.x, neuronA.y);
             ctx.lineTo(neuronB.x, neuronB.y);
-            // HUGE boost for mobile visibility
-            ctx.strokeStyle = `rgba(${baseColor}, ${opacity * (isMobile ? 0.6 : 0.15)})`;
-            ctx.lineWidth = isMobile ? 1.5 : 0.8;
+            // Usar configuración específica del dispositivo
+            ctx.strokeStyle = `rgba(${baseColor}, ${opacity * config.connectionOpacityMultiplier})`;
+            ctx.lineWidth = config.connectionLineWidth;
             ctx.stroke();
         };
 

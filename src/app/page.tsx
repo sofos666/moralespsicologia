@@ -25,7 +25,19 @@ type Category = 'Niños' | 'Adolescentes' | 'Adultos' | 'Parejas' | 'Estrés Lab
 export default function Home() {
   const [activeTriage, setActiveTriage] = useState<Category | null>(null);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const execIconRef = useRef<HTMLElement>(null);
+
+  // Detectar si es dispositivo móvil para animaciones condicionales
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (execIconRef.current) {
@@ -132,15 +144,16 @@ export default function Home() {
               tabIndex={0}
               className="h-full bg-metallic-dark p-4 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] flex flex-col justify-end group cursor-pointer relative overflow-hidden group/main focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
             >
-              {/* Diseño Lineal Central */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-30 transition-all duration-700 scale-50 md:scale-100">
+              {/* Diseño Lineal Central - Animación condicional: permanente en móvil, hover en desktop */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-40 transition-all duration-700 scale-50 md:scale-100">
                 <motion.svg
                   className="w-56 h-56 text-emerald-400"
                   viewBox="0 0 100 100"
                   fill="none"
                   stroke="currentColor"
-                  initial="rest"
-                  whileHover="hover"
+                  initial={isMobile ? false : "rest"}
+                  whileHover={isMobile ? undefined : "hover"}
+                  animate={isMobile ? "hover" : undefined}
                 >
                   <motion.rect
                     x="35" y="60" width="30" height="30" rx="4" strokeWidth="1.5"
@@ -155,6 +168,7 @@ export default function Home() {
                       rest: { rotate: 0, scale: 1 },
                       hover: { rotate: [0, 90, 180, 270, 360], scale: [1, 1.1, 1], transition: { duration: 8, repeat: Infinity, ease: "linear" } }
                     }}
+                    style={{ transformOrigin: "50px 45px" }}
                   />
                   <motion.circle
                     cx="50" cy="20" r="8" strokeWidth="1.5"
@@ -165,9 +179,10 @@ export default function Home() {
                   />
                   <motion.g
                     variants={{
-                      rest: { opacity: 0, scale: 0.5 },
-                      hover: { opacity: [0, 1, 0], scale: [0.5, 1.5, 0.5], transition: { duration: 3, repeat: Infinity } }
+                      rest: { opacity: 0.3, scale: 0.7 },
+                      hover: { opacity: [0.3, 1, 0.3], scale: [0.7, 1.3, 0.7], transition: { duration: 3, repeat: Infinity } }
                     }}
+                    style={{ transformOrigin: "50px 50px" }}
                   >
                     <circle cx="20" cy="30" r="2" fill="currentColor" />
                     <circle cx="80" cy="40" r="1.5" fill="currentColor" />
@@ -216,7 +231,8 @@ export default function Home() {
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/shcfcebj.json"
-                  trigger="hover"
+                  trigger={isMobile ? "loop" : "hover"}
+                  delay={isMobile ? "1500" : undefined}
                   colors="primary:#60a5fa,secondary:#93c5fd"
                   style={{ width: '250px', height: '250px' }}
                 />
@@ -248,15 +264,16 @@ export default function Home() {
                 <svg className="w-5 h-5 sm:w-8 sm:h-8 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
               </div>
 
-              {/* Diseño Lineal Central */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-30 transition-all duration-700 scale-50 md:scale-100">
+              {/* Diseño Lineal Central - Animación condicional: permanente en móvil, hover en desktop */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-40 transition-all duration-700 scale-50 md:scale-100">
                 <motion.svg
                   className="w-56 h-56 text-violet-400"
                   viewBox="0 0 100 100"
                   fill="none"
                   stroke="currentColor"
-                  initial="rest"
-                  whileHover="hover"
+                  initial={isMobile ? false : "rest"}
+                  whileHover={isMobile ? undefined : "hover"}
+                  animate={isMobile ? "hover" : undefined}
                 >
                   <motion.path
                     d="M20 50 Q35 20 50 50 T80 50"
@@ -265,7 +282,7 @@ export default function Home() {
                       rest: { d: "M20 50 Q35 20 50 50 T80 50" },
                       hover: {
                         d: ["M20 50 Q35 20 50 50 T80 50", "M20 50 Q35 80 50 50 T80 50", "M20 50 Q35 20 50 50 T80 50"],
-                        transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                        transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
                       }
                     }}
                   />
@@ -277,7 +294,7 @@ export default function Home() {
                       rest: { d: "M10 50 Q35 30 50 50 T90 50" },
                       hover: {
                         d: ["M10 50 Q35 30 50 50 T90 50", "M10 50 Q35 70 50 50 T90 50", "M10 50 Q35 30 50 50 T90 50"],
-                        transition: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.2 }
+                        transition: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }
                       }
                     }}
                   />
@@ -320,7 +337,8 @@ export default function Home() {
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/nvsfzbop.json"
-                  trigger="hover"
+                  trigger={isMobile ? "loop" : "hover"}
+                  delay={isMobile ? "2000" : undefined}
                   colors="primary:#fb7185,secondary:#fda4af"
                   style={{ width: '150px', height: '150px' }}
                 />
@@ -345,7 +363,8 @@ export default function Home() {
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/lbcxnxti.json"
-                  trigger="hover"
+                  trigger={isMobile ? "loop" : "hover"}
+                  delay={isMobile ? "2500" : undefined}
                   colors="primary:#fbbf24,secondary:#f59e0b"
                   style={{ width: '150px', height: '150px' }}
                 />
@@ -376,7 +395,8 @@ export default function Home() {
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/jeuxydnh.json"
-                  trigger="hover"
+                  trigger={isMobile ? "loop" : "hover"}
+                  delay={isMobile ? "1800" : undefined}
                   colors="primary:#818cf8,secondary:#c7d2fe"
                   style={{ width: '150px', height: '150px' }}
                 />
@@ -403,7 +423,8 @@ export default function Home() {
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/arwxzizt.json"
-                  trigger="hover"
+                  trigger={isMobile ? "loop" : "hover"}
+                  delay={isMobile ? "2200" : undefined}
                   colors="primary:#34d399,secondary:#6ee7b7"
                   style={{ width: '150px', height: '150px' }}
                 />
@@ -425,15 +446,16 @@ export default function Home() {
                 <svg className="w-5 h-5 sm:w-8 sm:h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
               </div>
 
-              {/* Diseño Lineal Central */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-30 transition-all duration-700 pointer-events-none scale-50 md:scale-100">
+              {/* Diseño Lineal Central - Animación condicional: permanente en móvil, hover en desktop */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-40 transition-all duration-700 scale-50 md:scale-100">
                 <motion.svg
                   className="w-56 h-56 text-cyan-400"
                   viewBox="0 0 100 100"
                   fill="none"
                   stroke="currentColor"
-                  initial="rest"
-                  whileHover="hover"
+                  initial={isMobile ? false : "rest"}
+                  whileHover={isMobile ? undefined : "hover"}
+                  animate={isMobile ? "hover" : undefined}
                 >
                   <rect x="35" y="20" width="30" height="55" rx="4" strokeWidth="1.5" />
                   <rect x="38" y="28" width="24" height="38" strokeWidth="1" />
@@ -443,6 +465,7 @@ export default function Home() {
                       rest: { scale: 1, opacity: 0.8 },
                       hover: { scale: [1, 1.3, 1], opacity: [0.8, 0.2, 0.8], transition: { duration: 2, repeat: Infinity } }
                     }}
+                    style={{ transformOrigin: "50px 47px" }}
                   >
                     <ellipse cx="50" cy="47" rx="8" ry="6" strokeWidth="0.5" />
                   </motion.g>
@@ -451,6 +474,7 @@ export default function Home() {
                       rest: { scale: 1, opacity: 0.6 },
                       hover: { scale: [1, 1.5, 1], opacity: [0.6, 0.1, 0.6], transition: { duration: 2, repeat: Infinity, delay: 0.3 } }
                     }}
+                    style={{ transformOrigin: "50px 47px" }}
                   >
                     <ellipse cx="50" cy="47" rx="15" ry="12" strokeWidth="0.5" />
                   </motion.g>
@@ -459,6 +483,7 @@ export default function Home() {
                       rest: { scale: 1, opacity: 0.4 },
                       hover: { scale: [1, 1.7, 1], opacity: [0.4, 0, 0.4], transition: { duration: 2, repeat: Infinity, delay: 0.6 } }
                     }}
+                    style={{ transformOrigin: "50px 47px" }}
                   >
                     <ellipse cx="50" cy="47" rx="22" ry="18" strokeWidth="0.5" />
                   </motion.g>

@@ -20,8 +20,8 @@ const merriweather = Merriweather({
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://Moralespsicologia.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Psic. Cristian Morales | MVP - Morales Velásquez Psicólogo",
-  description: "Psicoterapia privada de alta especialidad en Medellín. Atención a niños, adolescentes, adultos, parejas y ejecutivos. +10 años de experiencia transformando vidas.",
+  title: "Psic. Cristian Morales Velásquez",
+  description: "psicoterapia privada, No seas el síntoma de otros.",
   keywords: ["psicólogo Medellín", "psicoterapia", "terapia de pareja", "psicología infantil", "estrés laboral", "burnout", "Cristian Morales", "salud mental"],
   authors: [{ name: "Psic. Cristian Morales Velásquez" }],
   creator: "Psic. Cristian Morales Velásquez",
@@ -30,22 +30,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_CO",
     url: baseUrl,
-    siteName: "MVP - Morales Velásquez Psicólogo",
-    title: "Psic. Cristian Morales | Psicoterapia de Alta Especialidad",
-    description: "Arquitectura Mental para Líderes & Familias. Psicoterapia privada en Medellín con +10 años de experiencia.",
+    siteName: "Psic. Cristian Morales Velásquez",
+    title: "Psic. Cristian Morales Velásquez",
+    description: "psicoterapia privada, No seas el síntoma de otros.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Psic. Cristian Morales - Psicoterapia de Alta Especialidad",
+        alt: "Psic. Cristian Morales Velásquez",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Psic. Cristian Morales | MVP - Morales Velásquez Psicólogo",
-    description: "Psicoterapia privada de alta especialidad en Medellín. Atención a niños, adolescentes, adultos, parejas y ejecutivos.",
+    title: "Psic. Cristian Morales Velásquez",
+    description: "psicoterapia privada, No seas el síntoma de otros.",
     images: ["/og-image.jpg"],
   },
   robots: {

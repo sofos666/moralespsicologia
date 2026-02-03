@@ -149,10 +149,10 @@
 
   .bg-metallic-dark {
     background: linear-gradient(145deg,
-        rgba(10, 10, 10, 0.2) 0%,
-        rgba(26, 28, 30, 0.3) 45%,
-        rgba(74, 74, 74, 0.25) 80%,
-        rgba(176, 176, 176, 0.15) 100%);
+        rgba(10, 10, 10, 0.4) 0%,
+        rgba(26, 28, 30, 0.5) 45%,
+        rgba(74, 74, 74, 0.4) 80%,
+        rgba(176, 176, 176, 0.2) 100%);
     @apply border border-white/20 backdrop-blur-2xl;
     box-shadow:
       0 20px 40px -10px rgba(0, 0, 0, 0.2),
@@ -160,16 +160,18 @@
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .bg-metallic-dark:hover {
-    @apply border-white/40;
-    background: linear-gradient(145deg,
-        rgba(10, 10, 10, 0.3) 0%,
-        rgba(26, 28, 30, 0.4) 45%,
-        rgba(74, 74, 74, 0.35) 80%,
-        rgba(176, 176, 176, 0.25) 100%);
-    box-shadow:
-      0 30px 60px -15px rgba(0, 0, 0, 0.3),
-      inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  @media (hover: hover) and (pointer: fine) {
+    .bg-metallic-dark:hover {
+      @apply border-white/40;
+      background: linear-gradient(145deg,
+          rgba(10, 10, 10, 0.3) 0%,
+          rgba(26, 28, 30, 0.4) 45%,
+          rgba(74, 74, 74, 0.35) 80%,
+          rgba(176, 176, 176, 0.25) 100%);
+      box-shadow:
+        0 30px 60px -15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    }
   }
 
   .btn-luxury {
@@ -179,8 +181,10 @@
     box-shadow: 0 0 30px rgba(242, 183, 5, 0.3);
   }
 
-  .btn-luxury:hover {
-    box-shadow: 0 0 50px rgba(242, 183, 5, 0.5);
+  @media (hover: hover) and (pointer: fine) {
+    .btn-luxury:hover {
+      box-shadow: 0 0 50px rgba(242, 183, 5, 0.5);
+    }
   }
 
   /* Tipografía fluida responsive */

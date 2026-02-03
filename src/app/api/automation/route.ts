@@ -1,26 +1,41 @@
 import { NextResponse } from 'next/server';
+import { z } from 'zod';
 
 // URL del Google Apps Script Web App - SE DEBE CONFIGURAR
 const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || '';
 const FORMSPREE_URL = "https://formspree.io/f/mqaeodlo";
 
-interface AutomationPayload {
-    formType: 'triaje' | 'presencial' | 'virtual';
-    name: string;
-    email: string;
-    whatsapp: string;
-    category?: string;
-    score?: number;
-    result?: string;
-    feedback?: string;
-    message?: string;
-    preferredDate?: string;
-    preferredTime?: string;
-}
+// Schema validation for automation payload
+const automationSchema = z.object({
+    formType: z.enum(['triaje', 'presencial', 'virtual']),
+    name: z.string().min(2),
+    email: z.string().email(),
+    whatsapp: z.string().min(5),
+    category: z.string().optional(),
+    score: z.number().optional(),
+    result: z.string().optional(),
+    feedback: z.string().optional(),
+    message: z.string().optional(),
+    preferredDate: z.string().optional(),
+    preferredTime: z.string().optional(),
+});
+
+type AutomationPayload = z.infer<typeof automationSchema>;
 
 export async function POST(request: Request) {
     try {
-        const data: AutomationPayload = await request.json();
+        const body = await request.json();
+
+        // Validate input
+        const validation = automationSchema.safeParse(body);
+        if (!validation.success) {
+            return NextResponse.json(
+                { success: false, error: validation.error.format() },
+                { status: 400 }
+            );
+        }
+
+        const data: AutomationPayload = validation.data;
 
         let googleSuccess = false;
         let formspreeSuccess = false;

@@ -84,7 +84,14 @@ export const StandardBookingForm: React.FC<StandardBookingFormProps> = ({ onClos
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={onClose}
-                className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/95 backdrop-blur-xl overflow-y-auto"
+                className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center bg-black/95 backdrop-blur-xl overflow-y-auto overscroll-contain"
+                style={{
+                    minHeight: 'calc(100vh)',
+                    paddingTop: 'max(1rem, env(safe-area-inset-top))',
+                    paddingBottom: 'max(1rem, env(safe-area-inset-bottom))',
+                    paddingLeft: 'max(1rem, env(safe-area-inset-left))',
+                    paddingRight: 'max(1rem, env(safe-area-inset-right))'
+                }}
             >
                 {/* Modal Container */}
                 <motion.div
@@ -92,7 +99,7 @@ export const StandardBookingForm: React.FC<StandardBookingFormProps> = ({ onClos
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: 20 }}
                     onClick={(e) => e.stopPropagation()}
-                    className="relative w-full max-w-lg mx-auto z-[110] my-8 sm:my-12"
+                    className="relative w-full max-w-lg mx-auto z-[110] my-4 sm:my-8"
                 >
                     <div className="bg-metallic-dark rounded-[2.5rem] p-8 md:p-12 relative border border-white/10 shadow-2xl">
                         {/* Botón Cerrar */}

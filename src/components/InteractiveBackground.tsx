@@ -73,8 +73,15 @@ export const InteractiveBackground = memo(() => {
         if (!ctx) return;
 
         const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            // Use visualViewport for iOS Safari compatibility (handles dynamic toolbar)
+            const vw = window.visualViewport?.width || window.innerWidth;
+            const vh = window.visualViewport?.height || window.innerHeight;
+            // Always fill at least the full screen to prevent white gaps
+            canvas.width = Math.max(vw, document.documentElement.clientWidth);
+            canvas.height = Math.max(vh, document.documentElement.clientHeight);
+            // Immediately fill background to prevent white flash
+            ctx.fillStyle = '#0a0a0b';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
         };
 
         // Debounced resize para performance
@@ -278,11 +285,20 @@ export const InteractiveBackground = memo(() => {
             }
         };
 
+        // Add visualViewport resize listener for iOS Safari dynamic toolbar
+        const handleViewportResize = () => resizeCanvas();
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', handleViewportResize);
+        }
+
         window.addEventListener('resize', debouncedResize);
         document.addEventListener('visibilitychange', handleVisibilityChange);
         animate();
 
         return () => {
+            if (window.visualViewport) {
+                window.visualViewport.removeEventListener('resize', handleViewportResize);
+            }
             window.removeEventListener('resize', debouncedResize);
             document.removeEventListener('visibilitychange', handleVisibilityChange);
             cancelAnimationFrame(animationFrameId);
@@ -307,11 +323,15 @@ export const InteractiveBackground = memo(() => {
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 w-full h-full block"
+            className="fixed inset-0 block"
             style={{
                 zIndex: -1,
+                width: '100vw',
+                height: '100vh',
+                minHeight: '100%',
                 willChange: 'transform',
                 transform: 'translateZ(0)',
+                backgroundColor: '#0a0a0b',
             }}
             aria-hidden="true"
         />

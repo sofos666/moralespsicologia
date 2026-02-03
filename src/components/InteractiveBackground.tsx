@@ -138,8 +138,8 @@ export const InteractiveBackground = memo(() => {
             ctx.beginPath();
             ctx.moveTo(neuronA.x, neuronA.y);
             ctx.lineTo(neuronB.x, neuronB.y);
-            ctx.strokeStyle = `rgba(${baseColor}, ${opacity * (isMobile ? 0.2 : 0.15)})`; // Increased opacity for mobile visibility
-            ctx.lineWidth = 0.8;
+            ctx.strokeStyle = `rgba(${baseColor}, ${opacity * (isMobile ? 0.5 : 0.15)})`; // Much more visible on mobile
+            ctx.lineWidth = isMobile ? 1.2 : 0.8; // Thicker lines on mobile
             ctx.stroke();
         };
 

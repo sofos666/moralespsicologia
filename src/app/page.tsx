@@ -248,8 +248,8 @@ export default function Home() {
                 <svg className="w-5 h-5 sm:w-8 sm:h-8 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
               </div>
 
-              {/* Diseño Lineal Central - Solo desktop */}
-              <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-10 group-hover:opacity-30 transition-all duration-700">
+              {/* Diseño Lineal Central */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-all duration-700 pointer-events-none scale-50 md:scale-100">
                 <motion.svg
                   className="w-56 h-56 text-violet-400"
                   viewBox="0 0 100 100"
@@ -297,7 +297,7 @@ export default function Home() {
               </div>
 
               <h3 className="text-sm sm:text-xl font-bold text-violet-300 z-10">Adolescentes</h3>
-              <p className="text-gray-500 text-[10px] sm:text-xs z-10 hidden sm:block">Identidad, redes y bienestar emocional.</p>
+              <p className="text-gray-500 text-[10px] sm:text-xs z-10 block leading-tight mt-1">Identidad, redes y bienestar emocional.</p>
               <div className="absolute -bottom-4 -right-4 w-16 sm:w-24 h-16 sm:h-24 bg-cat-teen/20 rounded-full blur-2xl" />
             </div>
           </TiltCard>

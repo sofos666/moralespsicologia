@@ -162,6 +162,14 @@ export function NewsFeed() {
                         </svg>
                     </motion.button>
                 </div>
+
+                {/* Mobile Swipe Hint */}
+                <div className="md:hidden flex items-center gap-2 text-emerald-400 text-xs animate-pulse opacity-80">
+                    <span>Desliza para ver más</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </div>
             </div>
 
             {/* Horizontal Carousel */}

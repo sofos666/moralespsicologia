@@ -133,7 +133,7 @@ export default function Home() {
               className="h-full bg-metallic-dark p-4 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] flex flex-col justify-end group cursor-pointer relative overflow-hidden group/main focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
             >
               {/* Diseño Lineal Central */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-30 transition-all duration-700 pointer-events-none scale-50 md:scale-100">
+              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-30 transition-all duration-700 scale-50 md:scale-100">
                 <motion.svg
                   className="w-56 h-56 text-emerald-400"
                   viewBox="0 0 100 100"
@@ -212,7 +212,7 @@ export default function Home() {
               className="h-full bg-metallic-dark p-4 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-8 group cursor-pointer transition-all duration-500 relative overflow-hidden group/adult focus:outline-none focus:ring-2 focus:ring-blue-500/50"
             >
               {/* Diseño Lineal Central - LordIcon Adultos */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-60 transition-all duration-700 z-10 pointer-events-none scale-50 md:scale-100">
+              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-60 transition-all duration-700 z-10 scale-50 md:scale-100">
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/shcfcebj.json"
@@ -249,7 +249,7 @@ export default function Home() {
               </div>
 
               {/* Diseño Lineal Central */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-30 transition-all duration-700 pointer-events-none scale-50 md:scale-100">
+              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-30 transition-all duration-700 scale-50 md:scale-100">
                 <motion.svg
                   className="w-56 h-56 text-violet-400"
                   viewBox="0 0 100 100"
@@ -316,7 +316,7 @@ export default function Home() {
               </div>
 
               {/* Diseño Lineal Central - LordIcon Parejas */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-80 transition-all duration-700 z-10 pointer-events-none scale-50 md:scale-100">
+              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-80 transition-all duration-700 z-10 scale-50 md:scale-100">
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/nvsfzbop.json"
@@ -341,7 +341,7 @@ export default function Home() {
               <h3 className="text-sm sm:text-xl font-bold text-amber-300 z-10 pointer-events-none">Alta Gerencia</h3>
 
               {/* Diseño Central - LordIcon Alta Gerencia */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-80 transition-all duration-700 z-10 pointer-events-none scale-50 md:scale-100">
+              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-80 transition-all duration-700 z-10 scale-50 md:scale-100">
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/lbcxnxti.json"
@@ -372,7 +372,7 @@ export default function Home() {
               </div>
 
               {/* Diseño Central - Familia LordIcon */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-80 transition-all duration-700 z-10 pointer-events-none scale-50 md:scale-100">
+              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-80 transition-all duration-700 z-10 scale-50 md:scale-100">
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/jeuxydnh.json"
@@ -399,7 +399,7 @@ export default function Home() {
               </div>
 
               {/* Diseño Lineal Central - LordIcon Burnout */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-80 transition-all duration-700 z-10 pointer-events-none scale-50 md:scale-100">
+              <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-80 transition-all duration-700 z-10 scale-50 md:scale-100">
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/arwxzizt.json"

@@ -95,7 +95,7 @@ export const InteractiveBackground = memo(() => {
         // Configuration - Super Optimized for Performance but VISIBLE
         const NEURON_COUNT = isMobile
             ? Math.min(35, Math.floor((canvas.width * canvas.height) / 15000)) // Mobile: ~35 neurons (More density)
-            : Math.min(50, Math.floor((canvas.width * canvas.height) / 18000)); // Desktop
+            : Math.min(80, Math.floor((canvas.width * canvas.height) / 15000)); // Desktop: ~80 neurons (Restored from backup)
 
         const CONNECTION_DISTANCE = isMobile ? 140 : 160; // Longer connections on mobile to ensure mesh
         const IMPULSE_CHANCE = isMobile ? 0.04 : 0.03; // More activity

@@ -250,8 +250,7 @@ export default function TerapiasPage() {
                 <div className="grid gap-6">
                     {therapies.map((therapy) => (
                         <TiltCard key={therapy.id} className="w-full">
-                            <motion.div
-                                layout
+                            <div
                                 onClick={() => toggleExpand(therapy.id)}
                                 className={`relative bg-metallic-dark rounded-[2rem] overflow-hidden cursor-pointer border border-white/5 hover:border-white/10 transition-colors ${expandedId === therapy.id ? 'bg-opacity-100' : ''
                                     }`}
@@ -355,7 +354,7 @@ export default function TerapiasPage() {
 
                                 {/* Background decoration */}
                                 <div className={`absolute top-0 right-0 w-96 h-96 bg-gradient-to-br ${therapy.color} opacity-5 blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3`} />
-                            </motion.div>
+                            </div>
                         </TiltCard>
                     ))}
                 </div>

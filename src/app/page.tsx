@@ -121,7 +121,7 @@ export default function Home() {
 
       {/* Features / Bento Grid */}
       <section className="relative z-10 container mx-auto px-6 pt-6 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] sm:auto-rows-[280px]">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 auto-rows-[180px] sm:auto-rows-[280px]">
 
           {/* Main Infantil Card - Now the flagship card */}
           <TiltCard className="sm:col-span-2 sm:row-span-2">

@@ -232,13 +232,15 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl overflow-y-auto"
+                onClick={onClose}
+                className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/95 backdrop-blur-xl overflow-y-auto"
             >
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                    className="relative w-full max-w-2xl mx-auto z-[110] my-20"
+                    onClick={(e) => e.stopPropagation()}
+                    className="relative w-full max-w-2xl mx-auto z-[110] my-8 sm:my-12"
                 >
                     <div className="bg-metallic-dark rounded-[2.5rem] border border-white/10 shadow-3xl overflow-hidden relative p-8 sm:p-12 md:p-16">
                         {/* Botón Cerrar */}

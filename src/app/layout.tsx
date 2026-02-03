@@ -17,7 +17,7 @@ const merriweather = Merriweather({
   variable: "--font-merriweather",
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://psicologomorales.com";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://Moralespsicologia.vercel.app";
 
 export const metadata: Metadata = {
   title: "Psic. Cristian Morales | MVP - Morales Velásquez Psicólogo",

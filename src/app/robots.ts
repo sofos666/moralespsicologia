@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://psicologomorales.com'}/sitemap.xml`,
+        sitemap: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://Moralespsicologia.vercel.app'}/sitemap.xml`,
     }
 }

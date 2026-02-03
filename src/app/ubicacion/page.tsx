@@ -137,30 +137,71 @@ export default function UbicacionPage() {
                     </motion.div>
                 </div>
 
-                {/* Gallery */}
+                {/* Gallery Carousel */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
+                    className="relative"
                 >
                     <h3 className="text-2xl font-serif text-white mb-8 text-center">Nuestras Instalaciones</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {images.map((src, index) => (
-                            <motion.div
-                                key={index}
-                                whileHover={{ scale: 1.02 }}
-                                className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg border border-white/10 group bg-gray-900"
-                            >
-                                {/* Using standard img tag for simplicity with unknown dimensions, or update to next/image if we can configure width/height */}
-                                <img
-                                    src={src}
-                                    alt={`Consultorio Seele ${index + 1}`}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                    loading="lazy"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            </motion.div>
-                        ))}
+
+                    {/* Carousel Container */}
+                    <div className="relative group">
+                        {/* Left Arrow */}
+                        <button
+                            onClick={() => {
+                                const container = document.getElementById('gallery-carousel');
+                                if (container) container.scrollBy({ left: -320, behavior: 'smooth' });
+                            }}
+                            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-all opacity-0 group-hover:opacity-100 -translate-x-2 hover:scale-110 backdrop-blur-sm border border-white/10"
+                            aria-label="Anterior"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+
+                        {/* Right Arrow */}
+                        <button
+                            onClick={() => {
+                                const container = document.getElementById('gallery-carousel');
+                                if (container) container.scrollBy({ left: 320, behavior: 'smooth' });
+                            }}
+                            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-all opacity-0 group-hover:opacity-100 translate-x-2 hover:scale-110 backdrop-blur-sm border border-white/10"
+                            aria-label="Siguiente"
+                        >
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+
+                        {/* Scrollable Gallery */}
+                        <div
+                            id="gallery-carousel"
+                            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 px-2"
+                            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                        >
+                            {images.map((src, index) => (
+                                <div
+                                    key={index}
+                                    className="relative flex-shrink-0 w-[280px] sm:w-[320px] aspect-[4/3] rounded-xl overflow-hidden shadow-lg border border-white/10 group/img bg-gray-900 snap-center"
+                                >
+                                    <img
+                                        src={src}
+                                        alt={`Consultorio Seele ${index + 1}`}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-110"
+                                        loading="lazy"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Mobile swipe hint */}
+                        <p className="text-center text-gray-500 text-xs mt-4 sm:hidden">
+                            ← Desliza para ver más →
+                        </p>
                     </div>
                 </motion.div>
 

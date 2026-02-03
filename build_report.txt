@@ -1,0 +1,97 @@
+﻿
+> next-psicologia-2025@0.1.0 build
+> next build
+
+node.exe : ÔÜá 
+Invalid 
+next.config.js 
+options detected: 
+En línea: 1 
+Carácter: 1
++ & "C:\Program Files
+\nodejs/node.exe" "C:
+\Users\elloc\AppData\
+Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (ÔÜá Inv   
+ alid nex...ions     
+detected: :Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+ÔÜá     Unrecognized 
+key(s) in object: 
+'swcMinify'
+ÔÜá See more info 
+here: https://nextjs.
+org/docs/messages/inv
+alid-next-config
+Ôû▓ Next.js 16.2.0-canary.14 (Turbopack)
+- Experiments (use with caution):
+  Ô£ô optimizeCss
+  ┬À optimizePackageImports
+
+  Creating an optimized production build ...
+Ô£ô Compiled successfully in 6.8s
+  Running TypeScript ...
+Failed to compile.
+
+.next/dev/types/valid
+ator.ts:5:79
+Type error: Cannot 
+find module 
+'./routes.js' or its 
+corresponding type 
+declarations.
+
+[0m [90m 3 |[39m 
+[90m// This file 
+validates that all 
+pages and layouts 
+export the correct 
+types[39m
+ [90m 4 |[39m
+[31m[1m>[22m[39m
+[90m 5 |[39m 
+[36mimport[39m 
+type { [33mAppRoutes
+[39m[33m,[39m [33
+mLayoutRoutes[39m[3
+3m,[39m [33mParamMa
+p[39m[33m,[39m [3
+3mAppRouteHandlerRout
+es[39m } 
+[36mfrom[39m [32m"
+./routes.js"[39m
+ [90m   |[39m      
+                     
+                     
+                     
+          
+[31m[1m^[22m[39m
+ [90m 6 |[39m 
+[36mimport[39m 
+type { [33mResolving
+Metadata[39m[33m,[
+39m [33mResolvingVie
+wport[39m } 
+[36mfrom[39m [32m"
+next/types.js"[39m
+ [90m 7 |[39m 
+[36mimport[39m 
+type { [33mNextReque
+st[39m } 
+[36mfrom[39m [32m'
+next/server.js'[39m
+ [90m 8 |[39m[0m
+Next.js build worker 
+exited with code: 1 
+and signal: null

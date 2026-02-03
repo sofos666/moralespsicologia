@@ -1,0 +1,145 @@
+﻿
+> next-psicologia-2025@0.1.0 dev
+> next dev -p 3001
+
+Ôû▓ Next.js 16.2.0-canary.14 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.1.3:3001
+Ô£ô Ready in 780ms
+node.exe : ÔÜá 
+Warning: Next.js 
+inferred your 
+workspace root, but 
+it may not be 
+correct.
+En línea: 1 
+Carácter: 1
++ & "C:\Program Files
+\nodejs/node.exe" "C:
+\Users\elloc\AppData\
+Roaming\ ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (ÔÜá War   
+ ning: Ne...not b    
+e correct.:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+ We detected 
+multiple lockfiles 
+and selected the 
+directory of C:\Users
+\elloc\pnpm-lock.yaml
+ as the root 
+directory.
+ To silence this 
+warning, set 
+`turbopack.root` in 
+your Next.js config, 
+or consider removing 
+one of the lockfiles 
+if it's not needed.
+   See https://nextjs
+.org/docs/app/api-ref
+erence/config/next-co
+nfig-js/turbopack#roo
+t-directory for more 
+information.
+ Detected additional 
+lockfiles: 
+   * C:\Users\elloc\D
+ocuments\automatizaci
+on psicologia\next-ps
+icologia-2025\pnpm-lo
+ck.yaml
+
+
+Ô¿» ./Documents/autom
+atizacion psicologia/
+next-psicologia-2025/
+src/app/globals.css
+Error evaluating 
+Node.js code
+Error: Cannot find 
+module 'autoprefixer'
+Require stack:
+- C:\Users\elloc\Docu
+ments\automatizacion 
+psicologia\next-psico
+logia-2025\.next\dev\
+build\chunks\[root-of
+-the-server]__6837c43
+3._.js
+- C:\Users\elloc\Docu
+ments\automatizacion 
+psicologia\next-psico
+logia-2025\.next\dev\
+build\chunks\[turbopa
+ck]_runtime.js
+- C:\Users\elloc\Docu
+ments\automatizacion 
+psicologia\next-psico
+logia-2025\.next\dev\
+build\postcss.js
+    [at Module._resol
+veFilename (node:inte
+rnal/modules/cjs/load
+er:1421:15)]
+    [at 
+defaultResolveImpl (n
+ode:internal/modules/
+cjs/loader:1059:19)]
+    [at resolveForCJS
+WithHooks (node:inter
+nal/modules/cjs/loade
+r:1064:22)]
+    [at Module._load 
+(node:internal/module
+s/cjs/loader:1227:37)
+]
+    [at TracingChanne
+l.traceSync (node:dia
+gnostics_channel:328:
+14)]
+    [at 
+wrapModuleLoad (node:
+internal/modules/cjs/
+loader:245:24)]
+    [at 
+Module.require (node:
+internal/modules/cjs/
+loader:1504:12)]
+    [at require (node
+:internal/modules/hel
+pers:152:16)]
+    [at <anonymous> (
+turbopack:///[turbopa
+ck-node]/transforms/p
+ostcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component 
+Browser:
+    ./Documents/autom
+atizacion psicologia/
+next-psicologia-2025/
+src/app/globals.css 
+[Client Component 
+Browser]
+    ./Documents/autom
+atizacion psicologia/
+next-psicologia-2025/
+src/app/layout.tsx 
+[Server Component]
+
+
+ HEAD / 500 in 629ms (compile: 446ms, render: 183ms)

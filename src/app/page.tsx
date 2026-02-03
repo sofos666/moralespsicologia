@@ -7,6 +7,7 @@ import { TiltCard } from '@/components/TiltCard';
 import { AnimatePresence, motion } from 'framer-motion';
 import Script from 'next/script';
 import { Footer } from '@/components/Footer';
+import { NewsFeed } from '@/components/NewsFeed';
 
 // Lazy load heavy modal components
 const VirtualBookingForm = dynamic(
@@ -80,10 +81,8 @@ export default function Home() {
             aria-label="Abrir formulario de reserva virtual"
           >
             <span className="relative z-10 text-white">Atención virtual con precios especiales</span>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-solar/0 via-white/20 to-solar/0 translate-x-[-100%]"
-              animate={{ x: ['-100%', '200%'] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-solar/0 via-white/20 to-solar/0 translate-x-[-100%] animate-shine"
             />
           </motion.button>
 
@@ -109,11 +108,20 @@ export default function Home() {
           <span className="text-luxury-olive font-medium not-italic uppercase tracking-widest mr-2 text-[10px]">Nota Ética:</span>
           Este triaje es una herramienta de orientación preliminar y no constituye un diagnóstico clínico formal. Su objetivo es identificar la pertinencia de una consulta profesional con el Psic. Cristian Morales.
         </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.8, duration: 1 }}
+          className="mt-6 text-gray-300 text-sm md:text-base font-light tracking-wide"
+        >
+          Para comenzar su Triaje, <span className="text-emerald-400 font-medium">haga clic en la tarjeta de abajo</span> que mejor describa su situación actual:
+        </motion.p>
       </section>
 
       {/* Features / Bento Grid */}
       <section className="relative z-10 container mx-auto px-6 pt-6 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[auto] sm:auto-rows-[280px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] sm:auto-rows-[280px]">
 
           {/* Main Infantil Card - Now the flagship card */}
           <TiltCard className="sm:col-span-2 sm:row-span-2">
@@ -125,7 +133,7 @@ export default function Home() {
               className="h-full bg-metallic-dark p-12 rounded-[2.5rem] flex flex-col justify-end group cursor-pointer relative overflow-hidden group/main focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
             >
               {/* Diseño Lineal Central - Bloques de Construcción Abstractos (Growth) */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-all duration-700">
+              <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-10 group-hover:opacity-30 transition-all duration-700">
                 <motion.svg
                   className="w-56 h-56 text-emerald-400 -mt-8"
                   viewBox="0 0 100 100"
@@ -137,26 +145,34 @@ export default function Home() {
                   {/* Bloque Base */}
                   <motion.rect
                     x="35" y="60" width="30" height="30" rx="4" strokeWidth="1.5"
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                    variants={{
+                      rest: { y: 0 },
+                      hover: { y: [0, -5, 0], transition: { duration: 4, repeat: Infinity, ease: "easeInOut" } }
+                    }}
                   />
                   {/* Bloque Medio Rotando */}
                   <motion.rect
                     x="40" y="35" width="20" height="20" rx="3" strokeWidth="1.5"
-                    animate={{ rotate: [0, 90, 180, 270, 360], scale: [1, 1.1, 1] }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                    variants={{
+                      rest: { rotate: 0, scale: 1 },
+                      hover: { rotate: [0, 90, 180, 270, 360], scale: [1, 1.1, 1], transition: { duration: 8, repeat: Infinity, ease: "linear" } }
+                    }}
                   />
                   {/* Círculo Flotante Superior */}
                   <motion.circle
                     cx="50" cy="20" r="8" strokeWidth="1.5"
-                    animate={{ y: [0, -10, 0], scale: [1, 1.2, 1] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                    variants={{
+                      rest: { y: 0, scale: 1 },
+                      hover: { y: [0, -10, 0], scale: [1, 1.2, 1], transition: { duration: 3, repeat: Infinity, ease: "easeInOut" } }
+                    }}
                   />
 
                   {/* Partículas de imaginación */}
                   <motion.g
-                    animate={{ opacity: [0, 1, 0], scale: [0.5, 1.5, 0.5] }}
-                    transition={{ duration: 3, repeat: Infinity }}
+                    variants={{
+                      rest: { opacity: 0, scale: 0.5 },
+                      hover: { opacity: [0, 1, 0], scale: [0.5, 1.5, 0.5], transition: { duration: 3, repeat: Infinity } }
+                    }}
                   >
                     <circle cx="20" cy="30" r="2" fill="currentColor" />
                     <circle cx="80" cy="40" r="1.5" fill="currentColor" />
@@ -191,10 +207,10 @@ export default function Home() {
               onKeyDown={(e) => e.key === 'Enter' && setActiveTriage('Adultos')}
               role="button"
               tabIndex={0}
-              className="h-full bg-metallic-dark p-6 sm:p-8 rounded-[2rem] flex flex-col sm:flex-row items-center gap-6 sm:gap-8 group cursor-pointer hover:scale-[1.02] transition-all duration-500 relative overflow-hidden group/adult focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+              className="h-full bg-metallic-dark p-6 sm:p-8 rounded-[2rem] flex flex-col sm:flex-row items-center gap-6 sm:gap-8 group cursor-pointer transition-all duration-500 relative overflow-hidden group/adult focus:outline-none focus:ring-2 focus:ring-blue-500/50"
             >
               {/* Diseño Lineal Central - LordIcon Adultos */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-60 transition-all duration-700 z-10">
+              <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-20 group-hover:opacity-60 transition-all duration-700 z-10">
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/shcfcebj.json"
@@ -224,16 +240,16 @@ export default function Home() {
               onKeyDown={(e) => e.key === 'Enter' && setActiveTriage('Adolescentes')}
               role="button"
               tabIndex={0}
-              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer hover:scale-[1.02] transition-all duration-500 overflow-hidden group/teen relative focus:outline-none focus:ring-2 focus:ring-violet-500/50"
+              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer transition-all duration-500 overflow-hidden group/teen relative focus:outline-none focus:ring-2 focus:ring-violet-500/50"
             >
               <div className="absolute top-8 right-8 w-16 h-16 rounded-2xl bg-cat-teen/10 flex items-center justify-center group-hover:bg-cat-teen/20 transition-all duration-500 z-10">
                 <svg className="w-8 h-8 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
               </div>
 
               {/* Diseño Lineal Central - Onda de Identidad (Identity Wave) */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-all duration-700">
+              <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-10 group-hover:opacity-30 transition-all duration-700">
                 <motion.svg
-                  className="w-32 h-32 text-violet-400"
+                  className="w-56 h-56 text-violet-400"
                   viewBox="0 0 100 100"
                   fill="none"
                   stroke="currentColor"
@@ -298,7 +314,7 @@ export default function Home() {
               onKeyDown={(e) => e.key === 'Enter' && setActiveTriage('Parejas')}
               role="button"
               tabIndex={0}
-              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer hover:scale-[1.02] transition-all duration-500 overflow-hidden group/couples relative focus:outline-none focus:ring-2 focus:ring-rose-500/50"
+              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer transition-all duration-500 overflow-hidden group/couples relative focus:outline-none focus:ring-2 focus:ring-rose-500/50"
             >
               <div className="absolute top-8 right-8 w-16 h-16 rounded-2xl bg-cat-couples/10 flex items-center justify-center group-hover:bg-cat-couples/20 transition-all duration-500 z-10">
                 <svg className="w-8 h-8 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
@@ -329,12 +345,12 @@ export default function Home() {
           <TiltCard>
             <div
               onClick={() => setActiveTriage('Alta Gerencia')}
-              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer hover:scale-[1.02] transition-all duration-500 relative overflow-hidden group/exec"
+              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer transition-all duration-500 relative overflow-hidden group/exec"
             >
               <h3 className="text-xl font-bold text-amber-300 z-10 pointer-events-none">Alta Gerencia</h3>
 
               {/* Diseño Central - LordIcon Alta Gerencia */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-80 transition-all duration-700 z-10">
+              <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-20 group-hover:opacity-80 transition-all duration-700 z-10">
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/lbcxnxti.json"
@@ -362,14 +378,14 @@ export default function Home() {
           <TiltCard>
             <div
               onClick={() => setActiveTriage('Familia')}
-              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer hover:scale-[1.02] transition-all duration-500 relative overflow-hidden group/family"
+              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer transition-all duration-500 relative overflow-hidden group/family"
             >
               <div className="absolute top-8 right-8 w-16 h-16 rounded-2xl bg-cat-family/20 flex items-center justify-center group-hover:bg-cat-family/30 transition-all duration-500 z-10">
                 <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
               </div>
 
               {/* Diseño Central - Familia LordIcon */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-80 transition-all duration-700 z-10">
+              <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-20 group-hover:opacity-80 transition-all duration-700 z-10">
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/jeuxydnh.json"
@@ -393,14 +409,14 @@ export default function Home() {
           <TiltCard>
             <div
               onClick={() => setActiveTriage('Estrés Laboral')}
-              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer hover:scale-[1.02] transition-all duration-500 relative overflow-hidden group/burnout"
+              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer transition-all duration-500 relative overflow-hidden group/burnout"
             >
               <div className="absolute top-8 right-8 w-16 h-16 rounded-2xl bg-cat-burnout/20 flex items-center justify-center group-hover:bg-cat-burnout/30 transition-all duration-500 z-10">
                 <svg className="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" /></svg>
               </div>
 
               {/* Diseño Lineal Central - LordIcon Burnout */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-80 transition-all duration-700 z-10">
+              <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-20 group-hover:opacity-80 transition-all duration-700 z-10">
                 {/* @ts-ignore */}
                 <lord-icon
                   src="https://cdn.lordicon.com/arwxzizt.json"
@@ -424,16 +440,16 @@ export default function Home() {
           <TiltCard>
             <div
               onClick={() => setActiveTriage('Nomofobia')}
-              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer hover:scale-[1.02] transition-all duration-500 relative overflow-hidden group/digital"
+              className="h-full bg-metallic-dark p-8 rounded-[2rem] flex flex-col justify-between group cursor-pointer transition-all duration-500 relative overflow-hidden group/digital"
             >
               <div className="absolute top-8 right-8 w-16 h-16 rounded-2xl bg-cat-digital/10 flex items-center justify-center group-hover:bg-cat-digital/20 transition-all duration-500 z-10">
                 <svg className="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
               </div>
 
               {/* Diseño Lineal Central - Smartphone con ondas de adicción */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-30 transition-all duration-700">
+              <div className="absolute inset-0 hidden md:flex items-center justify-center opacity-10 group-hover:opacity-30 transition-all duration-700">
                 <motion.svg
-                  className="w-24 h-24 text-cyan-400"
+                  className="w-56 h-56 text-cyan-400"
                   viewBox="0 0 100 100"
                   fill="none"
                   stroke="currentColor"
@@ -477,7 +493,7 @@ export default function Home() {
                 </motion.svg>
               </div>
 
-              <h3 className="text-xl font-bold text-cyan-200 z-10">Nomofobia</h3>
+              <h3 className="text-xl font-bold text-cyan-200 z-10">Nomofobia y adicción a internet</h3>
               <p className="text-gray-500 text-xs z-10">Higiene digital y presencia real.</p>
               <motion.div
                 animate={{ scale: [1, 1.2, 1], rotate: [0, 10, 0] }}
@@ -488,6 +504,11 @@ export default function Home() {
           </TiltCard>
 
         </div>
+      </section>
+
+      {/* News Feed Section */}
+      <section className="relative z-10 container mx-auto px-6 py-20">
+        <NewsFeed />
       </section>
 
       <Footer />

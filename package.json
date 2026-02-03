@@ -16,12 +16,14 @@
     "next": "^16.2.0-canary.14",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.4.0",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7",
+    "@types/xml2js": "^0.4.14",
     "autoprefixer": "^10.4.23",
     "eslint": "^8.57.1",
     "eslint-config-next": "^16.1.6",

@@ -109,6 +109,50 @@ const QUESTIONS: Record<Category, Question[]> = {
     ]
 };
 
+// Objeto de Respuestas Dinámicas Detalladas
+const FEEDBACK_MESSAGES: Record<Category, { low: string, medium: string, high: string }> = {
+    "Niños": {
+        low: "🟢 Puntaje bajo – Malestar leve o puntual\n\nGracias por responder el formulario.\n\nTus respuestas indican que el niño o la niña presenta algunas dificultades propias de su etapa de desarrollo, pero en general cuenta con recursos emocionales y relacionales que le permiten desenvolverse en su vida diaria.\n\nEs normal que en ciertos momentos aparezcan cambios en el comportamiento, el sueño o el estado de ánimo. Aun así, prestar atención a estas señales puede ayudar a acompañarlo de manera más tranquila y oportuna.\n\nUna orientación psicológica puede servir como espacio preventivo para comprender mejor lo que está viviendo y fortalecer su bienestar emocional.",
+        medium: "🟡 Puntaje medio – Malestar persistente\n\nGracias por completar el formulario.\n\nLas respuestas sugieren que el niño o la niña está atravesando dificultades que se repiten y que pueden estar afectando su comportamiento, su estado emocional o su relación con otros niños y adultos.\n\nMuchas veces, cuando los niños no pueden expresar con palabras lo que sienten, esto aparece en forma de conductas, miedos o problemas escolares.\n\nUn espacio psicológico puede ayudar a comprender qué está expresando el niño y a encontrar formas más claras y tranquilas de acompañarlo en este momento.",
+        high: "🔴 Puntaje alto – Malestar intenso\n\nGracias por responder el formulario.\n\nA partir de tus respuestas, se observa que el niño o la niña está atravesando un malestar importante que está interfiriendo de manera clara en su bienestar, su conducta o su vida cotidiana.\n\nEste tipo de situaciones no habla de fallas en la crianza ni de 'problemas graves', sino de la necesidad de un acompañamiento más cercano y especializado.\n\nBuscar apoyo psicológico en este momento puede ser fundamental para ayudar al niño a expresar lo que le ocurre y brindarle un entorno más seguro y comprensible."
+    },
+    "Adolescentes": {
+        low: "🟢 Puntaje bajo\n\nGracias por completar el formulario.\n\nLas respuestas indican que el adolescente presenta inquietudes o cambios emocionales propios de esta etapa, sin que actualmente interfieran de manera significativa en su vida diaria.\n\nLa adolescencia es un momento de transformaciones, y es común que surjan dudas, cambios de humor o necesidad de mayor espacio personal.\n\nUn espacio de orientación puede servir para acompañar este proceso y favorecer una comunicación más clara y tranquila.",
+        medium: "🟡 Puntaje medio\n\nGracias por responder el formulario.\n\nTus respuestas muestran que el adolescente está atravesando un malestar que se mantiene en el tiempo, como aislamiento, irritabilidad, desmotivación o conflictos frecuentes.\n\nEn muchos casos, esto aparece cuando no se encuentra un lugar seguro para hablar de lo que se siente o se piensa.\n\nUn espacio psicológico puede ofrecer una escucha sin juicios, ayudando al adolescente a comprender lo que le pasa y a encontrar nuevas formas de expresarse.",
+        high: "🔴 Puntaje alto\n\nGracias por completar el formulario.\n\nLas respuestas indican que el adolescente podría estar atravesando un momento emocionalmente difícil, que afecta su bienestar, sus relaciones o su desempeño cotidiano.\n\nPasar por esto no significa debilidad ni fracaso; muchas veces es la forma en que se expresa un malestar que ha sido sostenido en silencio.\n\nContar con acompañamiento psicológico puede ser muy importante para brindar contención y ayudar a atravesar este momento de una manera más cuidada."
+    },
+    "Adultos": {
+        low: "🟢 Puntaje bajo\n\nGracias por responder el formulario.\n\nTus respuestas muestran la presencia de preocupaciones o malestares puntuales, relacionados con situaciones específicas de tu vida actual.\n\nAunque no parecen dominar tu día a día, prestarles atención puede ayudarte a comprender mejor lo que estás atravesando.\n\nUn espacio de consulta puede servir como un lugar para pensar y ordenar aquello que hoy aparece de forma ocasional.",
+        medium: "🟡 Puntaje medio\n\nGracias por completar el formulario.\n\nLas respuestas indican un malestar que se ha venido repitiendo y que empieza a generar cansancio emocional, preocupación o dificultad para disfrutar la vida cotidiana.\n\nEs común que en estos casos se sienta que se piensa mucho sin encontrar una salida clara.\n\nUn proceso psicológico puede ayudarte a poner en palabras lo que te pasa y a aliviar este desgaste progresivo.",
+        high: "🔴 Puntaje alto\n\nGracias por responder el formulario.\n\nA partir de tus respuestas, se observa un malestar intenso que está afectando tu bienestar emocional, tu energía o tus relaciones.\n\nEsto no significa que 'no puedas' o que estés fallando, sino que has llegado a un punto donde no es fácil seguir sosteniendo todo en soledad.\n\nBuscar apoyo psicológico puede ofrecerte un espacio de contención y claridad para atravesar este momento con mayor alivio."
+    },
+    "Parejas": {
+        low: "🟢 Puntaje bajo\n\nGracias por completar el formulario.\n\nLas respuestas sugieren que existen algunas dificultades en la relación, propias de la convivencia y los cambios que atraviesa toda pareja.\n\nEstos desacuerdos no necesariamente indican una crisis, pero sí pueden ser una oportunidad para mejorar la comunicación.\n\nUn espacio de orientación puede ayudar a fortalecer el diálogo y el entendimiento mutuo.",
+        medium: "🟡 Puntaje medio\n\nGracias por responder el formulario.\n\nTus respuestas muestran conflictos que se repiten y generan malestar en la relación, como discusiones frecuentes, distancia emocional o dificultad para llegar a acuerdos.\n\nMuchas veces, estos problemas no se resuelven porque falta un espacio para escucharse de otra manera.\n\nUn acompañamiento psicológico puede ayudar a comprender lo que está ocurriendo entre ambos y abrir nuevas formas de encuentro.",
+        high: "🔴 Puntaje alto\n\nGracias por completar el formulario.\n\nLas respuestas indican que la relación atraviesa un momento de alta tensión, con un impacto importante en el bienestar emocional de uno o ambos miembros de la pareja.\n\nEsto suele generar desgaste, confusión y sufrimiento.\n\nContar con un espacio profesional puede ser fundamental para pensar la relación, tomar decisiones con mayor claridad y cuidar el bienestar emocional de cada uno."
+    },
+    "Estrés Laboral": {
+        low: "🟢 Puntaje bajo - Carga Manejable\n\nGracias por responder. Sus respuestas indican niveles de estrés laboral dentro de lo esperable. Sin embargo, es vital mantener hábitos saludables de desconexión.",
+        medium: "🟡 Puntaje medio - Riesgo de Burnout\n\nGracias por responder. Se evidencian signos de agotamiento y desmotivación que requieren atención para prevenir un impacto mayor en su salud y desempeño.",
+        high: "🔴 Puntaje alto - Burnout Activo\n\nGracias por responder. Sus respuestas sugieren un nivel crítico de estrés laboral que está afectando su salud física y mental. Se recomienda intervención profesional."
+    },
+    "Alta Gerencia": {
+        low: "🟢 Puntaje bajo - Gestión Efectiva\n\nGracias por responder. Parece manejar adecuadamente las presiones del cargo. Un espacio de consultoría puede potenciar aún más su liderazgo.",
+        medium: "🟡 Puntaje medio - Tensión de Rol\n\nGracias por responder. La soledad del líder y la carga de decisiones están empezando a impactar su equilibrio personal. Es momento de revisar estrategias de afrontamiento.",
+        high: "🔴 Puntaje alto - Fatiga Ejecutiva\n\nGracias por responder. Se observan indicadores de saturación que ponen en riesgo su toma de decisiones y salud. Un acompañamiento externo es altamente recomendado."
+    },
+    "Nomofobia": {
+        low: "🟢 Puntaje bajo - Uso Consciente\n\nGracias por responder. Su relación con la tecnología parece equilibrada, aunque siempre es bueno mantener espacios libres de pantallas.",
+        medium: "🟡 Puntaje medio - Dependencia Moderada\n\nGracias por responder. Se notan dificultades para desconectar que podrían estar afectando su concentración y descanso. Es recomendable establecer límites digitales.",
+        high: "🔴 Puntaje alto - Hiperconexión\n\nGracias por responder. El uso de dispositivos está interfiriendo significativamente en su vida diaria y bienestar. Un proceso de 'detox digital' acompañado sería beneficioso."
+    },
+    "Familia": {
+        low: "🟢 Puntaje bajo - Dinámica Estable\n\nGracias por responder. La familia cuenta con recursos para resolver conflictos, aunque se pueden fortalecer los canales de comunicación.",
+        medium: "🟡 Puntaje medio - Tensiones Recurrentes\n\nGracias por responder. Existen conflictos no resueltos que están afectando el clima familiar. Un espacio neutral podría facilitar el diálogo.",
+        high: "🔴 Puntaje alto - Crisis Vincular\n\nGracias por responder. Se evidencian dificultades importantes en la convivencia y comunicación que requieren orientación profesional para restablecer la armonía."
+    }
+};
+
 interface TriageWizardProps {
     category: Category;
     onClose: () => void;
@@ -134,19 +178,34 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
         }
     };
 
+    const getScoreLevel = (score: number) => {
+        if (score <= 15) return 'low';
+        if (score <= 25) return 'medium';
+        return 'high';
+    };
+
+    const calculateResult = () => {
+        const score = answers.reduce((acc, curr) => acc + curr, 0);
+        const level = getScoreLevel(score);
+
+        if (level === 'low') return { label: 'Optimizada', color: 'text-platinum' };
+        if (level === 'medium') return { label: 'En Evaluación', color: 'text-platinum/70' };
+        return { label: 'Prioritaria', color: 'text-terracota' };
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setFormStatus('submitting');
 
-        const result = calculateResult();
         const score = answers.reduce((acc, curr) => acc + curr, 0);
+        const level = getScoreLevel(score);
+        const resultLabel = calculateResult().label;
+        const feedbackMessage = FEEDBACK_MESSAGES[category][level];
 
-
-        // Preparar mensaje de WhatsApp
         const message = `Hola Psic. Cristian, acabo de realizar el *Triaje Virtual* en su sitio web.\n\n` +
             `*RESULTADOS:*\n` +
             `📂 *Categoría:* ${category}\n` +
-            `📊 *Perfil:* ${result.label}\n\n` +
+            `📊 *Perfil:* ${resultLabel}\n\n` +
             `*DATOS DE CONTACTO:*\n` +
             `👤 *Nombre:* ${formData.name}\n` +
             `📧 *Email:* ${formData.email}\n` +
@@ -155,36 +214,34 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/573014975393?text=${encodedMessage}`;
 
-        // Prioridad 1: Abrir WhatsApp inmediatamente
+        // 1. Abrir WhatsApp (Acción inmediata para el usuario)
         window.open(whatsappUrl, '_blank');
 
         try {
-            // Prioridad 2: Intentar respaldo en Formspree (sin bloquear al usuario)
+            // 2. Enviar datos a Formspree (Centralización de Base de Datos)
+            // Esto guardará el lead, el resultado y el mensaje de devolución que se debe enviar
             await fetch("https://formspree.io/f/mqaeodlo", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    _subject: `Triaje Virtual: ${category} - ${formData.name}`,
+                    _subject: `Nuevo Lead ${category} - ${formData.name} (${resultLabel})`,
+                    _replyto: formData.email, // Para que responder en Formspree le llegue al usuario
                     category,
                     score,
-                    result: result.label,
-                    ...formData
+                    result: resultLabel,
+                    client_name: formData.name,
+                    client_email: formData.email,
+                    client_whatsapp: formData.whatsapp,
+                    generated_feedback: feedbackMessage, // Guardamos la respuesta generada
+                    database_action: "CREATE_LEAD" // Tag para automatización futura
                 })
             });
         } catch (error) {
-            // Si falla el correo, no importa, ya el usuario está en WhatsApp
-            console.error("Error silencioso en Formspree:", error);
+            console.error("Error enviando a base de datos:", error);
         }
 
         setFormStatus('success');
-        setTimeout(() => onClose(), 1000);
-    };
-
-    const calculateResult = () => {
-        const total = answers.reduce((acc, curr) => acc + curr, 0);
-        if (total <= 15) return { label: 'Optimizada', color: 'text-platinum' };
-        if (total <= 25) return { label: 'En Evaluación', color: 'text-platinum/70' };
-        return { label: 'Prioritaria', color: 'text-terracota' };
+        setTimeout(() => onClose(), 2000);
     };
 
     return (
@@ -260,8 +317,9 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
                     >
                         <h2 className="text-3xl sm:text-4xl md:text-6xl font-light mb-4 sm:mb-6 text-white tracking-tighter">Análisis Finalizado</h2>
                         <p className="text-gray-400 mb-8 sm:mb-12 max-w-xl mx-auto text-base sm:text-lg font-light leading-relaxed">
-                            Detectamos un perfil <span className={calculateResult().color + " font-medium"}>{calculateResult().label}</span>.
-                            Para acceder a su hoja de ruta personalizada y reservar su espacio exclusivo, proporcione sus credenciales de contacto.
+                            Hemos generado un reporte preliminar basado en tus respuestas.
+                            <br /><br />
+                            <span className="text-emerald-400">Te enviaremos la devolución detallada a tu correo electrónico</span> para que puedas revisarla con calma, y conservaremos tus datos para crear tu historia clínica digital.
                         </p>
 
                         <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6 sm:space-y-8">
@@ -279,7 +337,7 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
                                 <input
                                     required
                                     type="email"
-                                    placeholder="CORREO INSTITUCIONAL O PERSONAL"
+                                    placeholder="CORREO PARA RECIBIR RESPUESTA"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                     className="w-full bg-transparent border-b border-white/10 py-3 sm:py-4 outline-none focus:border-terracota transition-colors text-white tracking-widest text-[10px] sm:text-xs font-light"
@@ -300,12 +358,9 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
                                     disabled={formStatus === 'submitting' || formStatus === 'success'}
                                     className="w-full py-4 sm:py-6 rounded-full bg-white text-black font-bold text-[10px] sm:text-xs uppercase tracking-[0.3em] hover:bg-terracota hover:text-white transition-all duration-700 shadow-2xl hover:shadow-terracota/20 disabled:opacity-50"
                                 >
-                                    {formStatus === 'submitting' ? 'Enviando...' : formStatus === 'success' ? '¡Enviado!' : 'Solicitar Hoja de Ruta'}
+                                    {formStatus === 'submitting' ? 'Procesando...' : formStatus === 'success' ? '¡Enviado! Revisa tu Correo' : 'Obtener Análisis y Contactar'}
                                 </button>
                             </div>
-                            {formStatus === 'error' && (
-                                <p className="text-terracota text-[10px] uppercase tracking-widest mt-4">Error al enviar. Intente de nuevo.</p>
-                            )}
                         </form>
                     </motion.div>
                 )}

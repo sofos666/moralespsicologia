@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 /**
  * <footer> Footer Component
@@ -15,6 +16,8 @@ export const Footer = () => {
                 <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-12 text-gray-500 text-sm mb-10">
                     <span className="flex items-center justify-center gap-2 italic">Universidad Luis Amigó</span>
                 </div>
+
+
 
                 <div className="flex flex-col items-center gap-8 mb-16">
                     <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
@@ -77,6 +80,24 @@ export const Footer = () => {
                             </motion.a>
                         </div>
                     </div>
+                </div>
+
+                {/* Address Link */}
+                <div className="flex justify-center mb-12">
+                    <Link
+                        href="/ubicacion"
+                        className="group flex items-center gap-4 px-6 py-3 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all duration-300"
+                    >
+                        <div className="p-2.5 rounded-full bg-indigo-500/20 text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <span className="text-gray-300 group-hover:text-white transition-colors text-sm tracking-wide">
+                            <strong className="text-indigo-400">Dirección:</strong> Carrera 66ª # 34B - 08, Segundo piso
+                        </span>
+                    </Link>
                 </div>
 
                 <p className="text-gray-600 text-xs uppercase tracking-[0.2em]">MVP - Morales Velásquez Psicólogo © 2025</p>

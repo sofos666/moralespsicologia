@@ -30,13 +30,21 @@ export const VirtualBookingForm: React.FC<VirtualBookingFormProps> = ({ onClose 
         setErrorMessage('');
 
         try {
-            // Envío a Formspree (Correo Electrónico)
+            // Envío a Formspree (Centralización de Base de Datos)
             const response = await fetch("https://formspree.io/f/mqaeodlo", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    _subject: `Nueva Solicitud de Atención Virtual: ${formData.name}`,
-                    ...formData
+                    _subject: `💎 Lead Virtual: ${formData.name}`,
+                    _replyto: formData.email,
+                    source_form: "Atención Virtual (Internacional)",
+                    client_name: formData.name,
+                    client_email: formData.email,
+                    client_whatsapp: formData.whatsapp,
+                    nationality: formData.nationality,
+                    timezone: formData.timezone,
+                    motive: formData.motive,
+                    database_action: "CREATE_LEAD"
                 })
             });
 

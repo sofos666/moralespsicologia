@@ -28,14 +28,21 @@ export const StandardBookingForm: React.FC<StandardBookingFormProps> = ({ onClos
         setErrorMessage('');
 
         try {
-            // Envío a Formspree (Mismo endpoint que el virtual para centralizar lead)
+            // Envío a Formspree (Centralización de Base de Datos)
             const response = await fetch("https://formspree.io/f/mqaeodlo", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    _subject: `Nueva Cita (${formData.modality}): ${formData.name}`,
-                    servicio: therapyTitle,
-                    ...formData
+                    _subject: `📍 Lead Cita: ${formData.name} (${therapyTitle || 'General'})`,
+                    _replyto: formData.email,
+                    source_form: "Cita Standard / Terapias",
+                    service_requested: therapyTitle || "Psicoterapia General",
+                    client_name: formData.name,
+                    client_email: formData.email,
+                    client_whatsapp: formData.whatsapp,
+                    modality: formData.modality,
+                    motive: formData.motive,
+                    database_action: "CREATE_LEAD"
                 })
             });
 

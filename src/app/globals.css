@@ -121,6 +121,20 @@
     }
   }
 
+  @keyframes shine-move {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(200%);
+    }
+  }
+
+  .animate-shine {
+    animation: shine-move 3s linear infinite;
+  }
+
   .text-gradient {
     background-clip: text;
     -webkit-background-clip: text;

@@ -4,8 +4,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Footer } from '@/components/Footer';
 
-// Image list based on the files copied (will be tailored after listing)
+// Image list - Lobby first, then the rest
 const images = [
+    "/images/consultorio/WhatsApp Image 2026-01-29 at 6.22.19 PM (1).jpeg", // Lobby (primera)
     "/images/consultorio/WhatsApp Image 2026-01-29 at 6.22.13 PM.jpeg",
     "/images/consultorio/WhatsApp Image 2026-01-29 at 6.22.15 PM.jpeg",
     "/images/consultorio/WhatsApp Image 2026-01-29 at 6.22.16 PM (1).jpeg",
@@ -13,7 +14,6 @@ const images = [
     "/images/consultorio/WhatsApp Image 2026-01-29 at 6.22.17 PM (1).jpeg",
     "/images/consultorio/WhatsApp Image 2026-01-29 at 6.22.17 PM.jpeg",
     "/images/consultorio/WhatsApp Image 2026-01-29 at 6.22.18 PM.jpeg",
-    "/images/consultorio/WhatsApp Image 2026-01-29 at 6.22.19 PM (1).jpeg",
     "/images/consultorio/WhatsApp Image 2026-01-29 at 6.22.19 PM.jpeg"
 ];
 

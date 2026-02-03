@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-
-# Archivos de sistema
-Disallow: /_next/
-Disallow: /api/
-
-# Sitemap
-Sitemap: https://psicologomorales.com/sitemap.xml

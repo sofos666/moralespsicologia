@@ -5,10 +5,14 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 export const TiltCard = memo(({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
     const ref = useRef<HTMLDivElement>(null);
-    const [isMobile, setIsMobile] = React.useState(false);
+
+    // Use a ref for checking mobile state during events to avoid re-renders
+    const isMobileRef = useRef(false);
 
     React.useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        const checkMobile = () => {
+            isMobileRef.current = window.innerWidth < 768;
+        };
         checkMobile();
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
@@ -24,7 +28,11 @@ export const TiltCard = memo(({ children, className = "" }: { children: React.Re
     const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (isMobile || !ref.current) return;
+        // Init check: if ref is null, don't do anything
+        if (!ref.current) return;
+
+        // Optimization: Don't calculate physics on mobile
+        if (isMobileRef.current) return;
 
         const rect = ref.current.getBoundingClientRect();
         const width = rect.width;
@@ -40,20 +48,9 @@ export const TiltCard = memo(({ children, className = "" }: { children: React.Re
     };
 
     const handleMouseLeave = () => {
-        if (isMobile) return;
         x.set(0);
         y.set(0);
     };
-
-    if (isMobile) {
-        return (
-            <div className={`relative ${className} h-full`}>
-                <div className="h-full">
-                    {children}
-                </div>
-            </div>
-        );
-    }
 
     return (
         <motion.div

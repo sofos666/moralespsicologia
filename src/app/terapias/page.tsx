@@ -353,7 +353,7 @@ export default function TerapiasPage() {
                                 </AnimatePresence>
 
                                 {/* Background decoration */}
-                                <div className={`absolute top-0 right-0 w-96 h-96 bg-gradient-to-br ${therapy.color} opacity-5 blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3`} />
+                                <div className={`hidden md:block absolute top-0 right-0 w-96 h-96 bg-gradient-to-br ${therapy.color} opacity-5 blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3`} />
                             </div>
                         </TiltCard>
                     ))}

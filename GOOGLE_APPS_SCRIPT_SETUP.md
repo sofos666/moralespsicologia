@@ -49,16 +49,21 @@ function doPost(e) {
       data.score || '',
       data.result || '',
       data.message || data.feedback || '',
-      data.modality || data.timezone || ''
+      data.modality || data.nationality || data.timezone || '' // Información extra
     ];
     
     // Agregar a la hoja
-    sheet.appendRow(row);
+    if (sheet) {
+      sheet.appendRow(row);
+    }
     
-    // Enviar email si es triaje
+    // 1. Enviar email al paciente si es triaje
     if (data.formType === 'triaje' && data.email) {
       sendTriageEmail(data);
     }
+    
+    // 2. Notificar SIEMPRE al Psicólogo (Cristian) sobre nuevas conversiones
+    sendAdminNotification(data);
     
     return ContentService.createTextOutput(JSON.stringify({ success: true }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -69,17 +74,46 @@ function doPost(e) {
   }
 }
 
+// Función para avisarle al Psicólogo que alguien completó un formulario
+function sendAdminNotification(data) {
+  const adminEmail = "cristianpsicologomed@gmail.com";
+  let subject = `📢 NUEVO LEAD: ${data.name} (${data.formType})`;
+  
+  let details = `Se ha recibido una nueva interacción desde la web:\n\n`;
+  details += `Formulario: ${data.formType.toUpperCase()}\n`;
+  details += `Nombre: ${data.name}\n`;
+  details += `Email: ${data.email}\n`;
+  details += `WhatsApp: ${data.whatsapp}\n`;
+  
+  if (data.category) details += `Categoría/Terapia: ${data.category}\n`;
+  if (data.result) details += `Resultado Triaje: ${data.result} (Puntaje: ${data.score})\n`;
+  if (data.modality) details += `Modalidad: ${data.modality}\n`;
+  if (data.nationality) details += `Nacionalidad: ${data.nationality}\n`;
+  if (data.timezone) details += `Zona Horaria: ${data.timezone}\n`;
+  if (data.message) details += `Mensaje/Motivo: ${data.message}\n`;
+  
+  details += `\n---\nEste es un aviso automático de tu sistema de gestión.`;
+
+  MailApp.sendEmail({
+    to: adminEmail,
+    subject: subject,
+    body: details,
+    name: 'Sistema de Automatización Web'
+  });
+}
+
 function sendTriageEmail(data) {
   const subject = `Tu Análisis Psicológico - ${data.category}`;
   
   // Nivel de atención según resultado
-  let levelColor = '#22c55e'; // verde
+  let levelColor = '#10b981'; // verde
   let levelText = 'Malestar leve';
+  
   if (data.result === 'En Evaluación') {
-    levelColor = '#eab308';
+    levelColor = '#eab308'; // amarillo
     levelText = 'Malestar persistente';
   } else if (data.result === 'Prioritaria') {
-    levelColor = '#ef4444';
+    levelColor = '#ef4444'; // rojo
     levelText = 'Malestar intenso';
   }
   
@@ -87,61 +121,36 @@ function sendTriageEmail(data) {
     <!DOCTYPE html>
     <html>
     <head>
+      <meta charset="utf-8">
       <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #111; color: #fff; padding: 40px; }
-        .container { max-width: 600px; margin: 0 auto; background: #1a1a1a; border-radius: 24px; padding: 40px; border: 1px solid #333; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .header h1 { color: #fff; font-size: 28px; font-weight: 300; margin: 0; }
-        .header p { color: #888; margin-top: 8px; }
-        .result-box { background: #222; border-radius: 16px; padding: 24px; margin: 24px 0; border-left: 4px solid ${levelColor}; }
-        .result-box h3 { color: ${levelColor}; margin: 0 0 12px 0; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; }
-        .result-box .score { font-size: 48px; color: #fff; font-weight: 200; }
-        .result-box .level { color: #ccc; font-size: 16px; margin-top: 8px; }
-        .category { display: inline-block; background: #333; color: #fff; padding: 8px 16px; border-radius: 20px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
-        .feedback { background: #222; border-radius: 12px; padding: 20px; margin: 24px 0; color: #aaa; line-height: 1.6; }
-        .cta { text-align: center; margin-top: 32px; }
-        .cta a { display: inline-block; background: #10b981; color: #000; text-decoration: none; padding: 16px 32px; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 12px; }
-        .footer { text-align: center; margin-top: 40px; color: #666; font-size: 12px; }
+        body { margin: 0; padding: 0; font-family: sans-serif; background-color: #000; color: #fff; }
+        .container { max-width: 600px; margin: 20px auto; background: #111; border-radius: 16px; border: 1px solid #333; overflow: hidden; }
+        .header { padding: 30px; text-align: center; border-bottom: 1px solid #333; }
+        .result-card { padding: 30px; text-align: center; }
+        .score { font-size: 32px; font-weight: bold; border: 3px solid ${levelColor}; width: 100px; height: 100px; line-height: 100px; border-radius: 50%; margin: 20px auto; color: ${levelColor}; }
+        .feedback { text-align: left; background: #222; padding: 20px; border-radius: 8px; border-left: 4px solid ${levelColor}; margin-top: 20px; color: #ccc; line-height: 1.6; }
+        .footer { padding: 30px; background: #0a0a0a; text-align: center; font-size: 12px; color: #666; }
+        .btn { display: inline-block; background: #fff; color: #000; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 25px; }
       </style>
     </head>
     <body>
       <div class="container">
         <div class="header">
-          <h1>Análisis Psicológico</h1>
-          <p>Triaje Virtual Completado</p>
+          <div style="font-size: 20px;">Psic. Cristian Morales</div>
+          <div style="color: #888; text-transform: uppercase; font-size: 12px; letter-spacing: 2px;">Informe de Triaje Virtual</div>
         </div>
-        
-        <p style="color: #ccc;">Hola <strong>${data.name}</strong>,</p>
-        <p style="color: #888;">Gracias por tomarte el tiempo de completar nuestro triaje virtual. A continuación encontrarás tus resultados:</p>
-        
-        <div style="text-align: center; margin: 24px 0;">
-          <span class="category">${data.category}</span>
-        </div>
-        
-        <div class="result-box">
-          <h3>Resultado del Análisis</h3>
+        <div class="result-card">
+          <div style="background: #333; display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 11px;">${data.category}</div>
           <div class="score">${data.score}/30</div>
-          <div class="level">Perfil: <strong>${data.result}</strong> - ${levelText}</div>
+          <h2 style="margin: 10px 0;">Perfil: ${data.result}</h2>
+          <div style="color: ${levelColor}; font-weight: bold;">${levelText}</div>
+          <div class="feedback">${data.feedback}</div>
+          <a href="https://wa.me/573014975393" class="btn">Agendar Consulta</a>
         </div>
-        
-        <div class="feedback">
-          <strong>Interpretación:</strong><br>
-          ${data.feedback}
-        </div>
-        
-        <p style="color: #888; font-size: 14px;">
-          Este análisis es una herramienta de orientación. Para una evaluación completa y personalizada, 
-          te invito a agendar una consulta donde podremos explorar juntos tu situación particular.
-        </p>
-        
-        <div class="cta">
-          <a href="https://wa.me/573014975393">Agendar Consulta por WhatsApp</a>
-        </div>
-        
         <div class="footer">
-          <p><strong>Psic. Cristian Morales Velásquez</strong></p>
-          <p>Universidad Católica Luis Amigó • Medellín, Colombia</p>
-          <p>www.moralespsicologia.com</p>
+          <strong>Psic. Cristian Morales Velásquez</strong><br>
+          Medellín, Colombia<br><br>
+          ⚠️ IMPORTANTE: Este es un reporte preliminar generado automáticamente.
         </div>
       </div>
     </body>
@@ -159,14 +168,14 @@ function sendTriageEmail(data) {
 // Función de prueba
 function testDoPost() {
   const testData = {
-    formType: 'triaje',
-    name: 'Test User',
+    formType: 'virtual',
+    name: 'Prueba Ejecución',
     email: 'test@example.com',
-    whatsapp: '+573001234567',
-    category: 'Adultos',
-    score: 18,
-    result: 'En Evaluación',
-    feedback: 'Puntaje medio – Malestar persistente'
+    whatsapp: '3001234567',
+    category: 'VIRTUAL',
+    nationality: 'Colombiana',
+    timezone: 'GMT-5',
+    message: 'Prueba de integración final'
   };
   
   const e = {

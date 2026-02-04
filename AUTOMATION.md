@@ -1,42 +1,21 @@
-# 🚀 Guía de Automatización y Base de Datos (Horizonte 2026)
+# 🚀 Guía de Automatización (Costo $0)
 
-Tu sitio web ya está preparado para centralizar todos los contactos en una sola base de datos y responder automáticamente a los tests de triaje. Sigue estos pasos para activarlo:
+Tu sitio web está configurado para centralizar todo en tu Google Sheets personal de forma gratuita.
 
-## 1. Centralización en Formspree
-Todos los formularios (Triaje, Reserva Virtual y Citas) ya envían la información al mismo endpoint: `https://formspree.io/f/mqaeodlo`.
+## 1. Google Sheets como Base de Datos
+Cada vez que alguien llena un formulario, la información se guarda automáticamente en:
+- `Triaje`: Resultados de los tests.
+- `Reservas Presenciales`: Citas en consultorio.
+- `Reservas Virtuales`: Citas internacionales.
 
-### Para ver tus leads:
-1. Entra a [Formspree.io](https://formspree.io).
-2. Abre tu formulario con ID `mqaeodlo`.
-3. En la pestaña **"Submissions"**, verás una tabla con todos los datos estandarizados (`client_name`, `client_email`, `generated_feedback`, etc.). Puedes descargar esto como **CSV** en cualquier momento para tener tu base de datos en Excel.
+## 2. Notificaciones en Tiempo Real
+El sistema ahora realiza dos acciones automáticas:
+1. **Para el Paciente (Triaje)**: Recibe un correo con un análisis estético de sus resultados.
+2. **Para Ti (Cristian)**: Recibes un correo instantáneo con **TODOS** los datos del lead cada vez que alguien completa cualquier formulario.
 
----
-
-## 2. Automatización de "Devolución" por Correo (Triaje)
-Para que el usuario reciba el texto de su test automáticamente:
-
-1. En Formspree, ve a la pestaña **"Settings"**.
-2. Busca la sección **"Auto-Response"** (disponible en planes pagos de Formspree) o usa el **"Email Notification"**.
-3. **Opción recomendada (Gratis/Pro con Make.com):**
-   - Crea una cuenta en [Make.com](https://make.com).
-   - Crea un "Scenario" con un **Webhook** que reciba los datos de Formspree.
-   - Conecta un módulo de **Gmail** o **SendGrid**.
-   - Configura el cuerpo del correo para que use la variable `generated_feedback` que el sitio ya está enviando.
+## 3. Formspree (Respaldo)
+Si por alguna razón Google Sheets falla, los datos se envían a tu cuenta de Formspree (`mqaeodlo`) como plan de respaldo, asegurando que nunca pierdas un contacto.
 
 ---
-
-## 3. Conexión con Google Sheets (Base de Datos en Tiempo Real)
-Si quieres que cada vez que alguien llene un formulario se escriba una fila en un Google Excel:
-
-1. En **Make.com**, después del Webhook de Formspree, añade un módulo de **Google Sheets**.
-2. Selecciona la acción **"Add a Row"**.
-3. Mapea los campos:
-   - Nombre -> `client_name`
-   - Email -> `client_email`
-   - Diagnóstico (Triaje) -> `generated_feedback`
-   - Motivo -> `motive`
-
----
-
-## ⚠️ Nota Importante
-El código ya envía el campo `database_action: "CREATE_LEAD"`, lo que permite que tus automatizaciones sepan exactamente qué hacer con cada entrada. El sistema es totalmente escalable.
+### 🛠️ Mantenimiento
+Si deseas actualizar el sistema, consulta el archivo [GOOGLE_APPS_SCRIPT_SETUP.md](file:///c:/Users/elloc/Documents/automatizacion%20psicologia/next-psicologia-2025/GOOGLE_APPS_SCRIPT_SETUP.md) y sigue los pasos de "Despliegue".

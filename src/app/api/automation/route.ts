@@ -18,6 +18,9 @@ const automationSchema = z.object({
     message: z.string().optional(),
     preferredDate: z.string().optional(),
     preferredTime: z.string().optional(),
+    nationality: z.string().optional(),
+    timezone: z.string().optional(),
+    modality: z.string().optional(),
 });
 
 type AutomationPayload = z.infer<typeof automationSchema>;

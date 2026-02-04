@@ -112,22 +112,45 @@ const QUESTIONS: Record<Category, Question[]> = {
 
 const FEEDBACK_MESSAGES: Record<Category, { low: string, medium: string, high: string }> = {
     "Niños": {
-        low: "🟢 Puntaje bajo – Malestar leve o puntual",
-        medium: "🟡 Puntaje medio – Malestar persistente",
-        high: "🔴 Puntaje alto – Malestar intenso"
+        low: "🟢 Puntaje bajo<br><br>Gracias por responder el formulario.<br><br>A partir de tus respuestas, se observa que el niño o la niña atraviesa algunas situaciones que pueden generar inquietud, pero que en general logra desenvolverse en su vida cotidiana. Estos momentos suelen formar parte del crecimiento y de los cambios propios de cada etapa.<br><br>Aun así, prestar atención a estas señales puede ser una buena oportunidad para comprender mejor lo que está necesitando y acompañarlo de manera más tranquila.<br><br>Un espacio de orientación psicológica puede servir para pensar estas situaciones con mayor claridad y fortalecer el bienestar emocional del niño.",
+        medium: "🟡 Puntaje medio<br><br>Gracias por tomarte el tiempo de responder el formulario.<br><br>Las respuestas sugieren que el niño o la niña presenta dificultades que se repiten y que pueden estar influyendo en su estado emocional, su comportamiento o su relación con los demás.<br><br>En muchos casos, los niños expresan a través de sus conductas aquello que todavía no pueden decir con palabras. Comprender esto suele aliviar tanto al niño como a su entorno.<br><br>Un acompañamiento psicológico puede ayudar a dar sentido a lo que está ocurriendo y a encontrar formas más adecuadas de sostener este momento.",
+        high: "🔴 Puntaje alto<br><br>Gracias por responder el formulario.<br><br>Según tus respuestas, el niño o la niña podría estar atravesando un momento de malestar importante, que está afectando distintos aspectos de su vida diaria. Esto puede resultar preocupante y generar muchas preguntas.<br><br>Estas situaciones no hablan de errores ni de fallas, sino de la necesidad de un acompañamiento más cercano y cuidadoso.<br><br>Contar con un espacio profesional puede ser un paso importante para comprender lo que está ocurriendo y ofrecerle al niño un entorno más seguro y comprensible."
     },
     "Adolescentes": {
-        low: "🟢 Puntaje bajo",
-        medium: "🟡 Puntaje medio",
-        high: "🔴 Puntaje alto"
+        low: "🟢 Puntaje bajo<br><br>Gracias por completar el formulario.<br><br>Las respuestas indican que el adolescente atraviesa inquietudes y cambios emocionales propios de esta etapa, sin que actualmente interfieran de manera significativa en su vida cotidiana.<br><br>La adolescencia suele estar acompañada de preguntas, transformaciones y búsqueda de identidad, lo cual puede generar tensiones normales.<br><br>Un espacio de orientación puede ayudar a acompañar este proceso y favorecer una comunicación más abierta y tranquila.",
+        medium: "🟡 Puntaje medio<br><br>Gracias por responder el formulario.<br><br>A partir de tus respuestas, se observa un malestar que se mantiene en el tiempo y que puede expresarse en aislamiento, irritabilidad, desmotivación o conflictos frecuentes.<br><br>Muchas veces, el adolescente no encuentra un lugar donde hablar con libertad de lo que siente o piensa.<br><br>Un espacio de escucha profesional puede ofrecerle la posibilidad de expresarse sin juicios y comenzar a comprender mejor lo que le está pasando.",
+        high: "🔴 Puntaje alto<br><br>Gracias por completar el formulario.<br><br>Las respuestas sugieren que el adolescente podría estar atravesando un momento emocionalmente complejo, que impacta su bienestar y su relación con los demás.<br><br>Estos momentos pueden vivirse con mucha soledad, tanto por parte del adolescente como de su entorno.<br><br>Contar con un acompañamiento psicológico puede ofrecer un espacio de contención y apoyo para atravesar este momento con mayor cuidado."
     },
-    // ... Simplified for space but should be the full messages in the real file
-    "Adultos": { low: "🟢", medium: "🟡", high: "🔴" },
-    "Parejas": { low: "🟢", medium: "🟡", high: "🔴" },
-    "Estrés Laboral": { low: "🟢", medium: "🟡", high: "🔴" },
-    "Alta Gerencia": { low: "🟢", medium: "🟡", high: "🔴" },
-    "Nomofobia": { low: "🟢", medium: "🟡", high: "🔴" },
-    "Familia": { low: "🟢", medium: "🟡", high: "🔴" }
+    "Adultos": {
+        low: "🟢 Puntaje bajo<br><br>Gracias por responder el formulario.<br><br>Tus respuestas muestran la presencia de preocupaciones o malestares puntuales, vinculados a situaciones específicas de tu vida actual. Aunque no parecen dominar tu día a día, es comprensible que generen inquietud.<br><br>Detenerse a pensar en estas situaciones puede ser una forma de cuidarte y entender mejor lo que estás atravesando.<br><br>Un espacio de consulta puede ayudarte a poner en palabras aquello que hoy aparece de manera ocasional.",
+        medium: "🟡 Puntaje medio<br><br>Gracias por completar el formulario.<br><br>Las respuestas indican un malestar que se ha venido sosteniendo en el tiempo y que empieza a generar cansancio emocional, preocupación o dificultad para disfrutar la vida cotidiana.<br><br>Es común sentir, en estos casos, que se da vueltas sobre lo mismo sin encontrar una salida clara.<br><br>Un proceso psicológico puede ofrecer un espacio para ordenar lo que te pasa y aliviar este desgaste progresivo.",
+        high: "🔴 Puntaje alto<br><br>Gracias por responder el formulario.<br><br>A partir de tus respuestas, se observa un malestar intenso que está afectando tu bienestar emocional, tu energía o tus vínculos. Esto puede sentirse como un peso difícil de llevar.<br><br>Llegar a este punto no habla de debilidad, sino de haber sostenido mucho durante demasiado tiempo.<br><br>Contar con un espacio de acompañamiento profesional puede ayudarte a atravesar este momento con mayor alivio y claridad."
+    },
+    "Parejas": {
+        low: "🟢 Puntaje bajo<br><br>Gracias por completar el formulario.<br><br>Las respuestas sugieren la presencia de algunas dificultades propias de la convivencia y de los cambios que atraviesa toda relación. Estas situaciones suelen generar roces, pero también pueden ser una oportunidad para revisar la forma de comunicarse.<br><br>Un espacio de orientación puede ayudar a fortalecer el diálogo y el entendimiento mutuo.",
+        medium: "🟡 Puntaje medio<br><br>Gracias por responder el formulario.<br><br>Tus respuestas muestran conflictos que se repiten y que generan malestar en la relación, como discusiones frecuentes, distancia emocional o dificultad para llegar a acuerdos.<br><br>Cuando estos conflictos se sostienen en el tiempo, suelen desgastar el vínculo.<br><br>Un acompañamiento psicológico puede ayudar a comprender lo que está ocurriendo y abrir nuevas formas de encuentro.",
+        high: "🔴 Puntaje alto<br><br>Gracias por completar el formulario.<br><br>Las respuestas indican que la relación atraviesa un momento de alta tensión, con un impacto importante en el bienestar emocional de uno o ambos miembros.<br><br>Estas situaciones suelen vivirse con cansancio, confusión y sufrimiento.<br><br>Contar con un espacio profesional puede ayudar a pensar la relación con mayor claridad y cuidado."
+    },
+    "Estrés Laboral": {
+        low: "🟢 Puntaje bajo<br><br>Gracias por responder el formulario.<br><br>Tus respuestas indican señales de cansancio o tensión relacionadas con el trabajo, que aún parecen manejables dentro de tu rutina diaria.<br><br>Escuchar estas señales a tiempo puede ayudarte a prevenir un mayor desgaste.<br><br>Un espacio de orientación puede servir para pensar el lugar que el trabajo ocupa en tu vida.",
+        medium: "🟡 Puntaje medio<br><br>Gracias por completar el formulario.<br><br>Las respuestas muestran un nivel de desgaste laboral que empieza a afectar tu bienestar emocional, tu energía y tu motivación.<br><br>Cuando el trabajo ocupa demasiado espacio, suele dejar poco lugar para el descanso y el disfrute.<br><br>Un proceso psicológico puede ayudarte a ordenar estas exigencias y encontrar un mayor equilibrio.",
+        high: "🔴 Puntaje alto<br><br>Gracias por responder el formulario.<br><br>A partir de tus respuestas, se observa un nivel importante de agotamiento físico y emocional relacionado con el trabajo.<br><br>Este tipo de desgaste no aparece de un día para otro, y suele ser una señal clara de que algo necesita ser revisado.<br><br>Contar con un espacio de acompañamiento puede ayudarte a cuidar tu salud emocional y recuperar bienestar."
+    },
+    "Alta Gerencia": {
+        low: "🟢 Puntaje bajo<br><br>Gracias por completar el formulario.<br><br>Las respuestas indican tensiones propias de los roles de liderazgo, que hasta ahora parecen integrarse de manera adecuada a tu vida personal.<br><br>Aun así, revisar estos aspectos puede ser una forma de cuidado y prevención.<br><br>Un espacio de reflexión profesional puede ayudarte a sostener tu rol con mayor equilibrio.",
+        medium: "🟡 Puntaje medio<br><br>Gracias por responder el formulario.<br><br>Tus respuestas muestran que la carga de responsabilidad y la presión del rol están comenzando a impactar tu bienestar personal.<br><br>Muchas veces, quienes ocupan cargos de liderazgo no encuentran espacios donde hablar libremente de estas tensiones.<br><br>Un acompañamiento psicológico puede ofrecer un lugar confidencial para pensar estas exigencias.",
+        high: "🔴 Puntaje alto<br><br>Gracias por completar el formulario.<br><br>Las respuestas sugieren que la exigencia del rol gerencial está afectando de manera significativa tu equilibrio emocional y personal.<br><br>Sostener estas responsabilidades en soledad suele generar un alto costo subjetivo.<br><br>Contar con un espacio profesional puede ayudarte a recuperar claridad y bienestar."
+    },
+    "Nomofobia": {
+        low: "🟢 Puntaje bajo<br><br>Gracias por responder el formulario.<br><br>Tus respuestas indican un uso frecuente del celular, que por ahora parece integrarse a tu vida cotidiana sin grandes interferencias.<br><br>Revisar estos hábitos puede ser una forma de tomar mayor conciencia de tu relación con la tecnología.<br><br>Un espacio de orientación puede ayudarte a pensar este vínculo con mayor claridad.",
+        medium: "🟡 Puntaje medio<br><br>Gracias por completar el formulario.<br><br>Las respuestas muestran que el uso del celular comienza a interferir en tu descanso, tu concentración o tus relaciones.<br><br>En muchos casos, el uso constante de pantallas funciona como una forma de evadir preocupaciones o malestares.<br><br>Un acompañamiento psicológico puede ayudarte a entender qué lugar ocupa el celular en tu vida.",
+        high: "🔴 Puntaje alto<br><br>Gracias por responder el formulario.<br><br>A partir de tus respuestas, se observa que el uso del celular está teniendo un impacto importante en tu bienestar y en tu vida cotidiana.<br><br>Esto no se trata de falta de voluntad, sino de un vínculo que se ha vuelto difícil de regular.<br><br>Un espacio de consulta puede ayudarte a comprender esta relación y encontrar formas más saludables de vincularte contigo y con los demás."
+    },
+    "Familia": {
+        low: "🟢 Puntaje bajo<br><br>Gracias por completar el formulario.<br><br>Las respuestas sugieren la presencia de tensiones familiares propias de la convivencia y de las diferencias entre sus miembros.<br><br>Estas situaciones pueden ser una oportunidad para revisar la comunicación y los acuerdos.<br><br>Un espacio de orientación puede ayudar a fortalecer el clima familiar.",
+        medium: "🟡 Puntaje medio<br><br>Gracias por responder el formulario.<br><br>Tus respuestas muestran conflictos familiares que se repiten y que generan malestar en la convivencia cotidiana.<br><br>Cuando estos conflictos no encuentran un lugar para ser hablados, suelen intensificarse.<br><br>Un acompañamiento psicológico puede ayudar a comprender estas dinámicas y favorecer vínculos más claros y respetuosos.",
+        high: "🔴 Puntaje alto<br><br>Gracias por completar el formulario.<br><br>Las respuestas indican un nivel importante de tensión familiar, que está afectando el bienestar emocional de sus integrantes.<br><br>Estas situaciones suelen generar cansancio y desgaste en todos los miembros.<br><br>Contar con un espacio profesional puede ayudar a pensar estas dificultades y a construir formas más cuidadas de convivencia."
+    }
 };
 
 interface TriageWizardProps {
@@ -141,6 +164,7 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
     const [showLeadForm, setShowLeadForm] = useState(false);
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
     const [formData, setFormData] = useState({ name: '', email: '', whatsapp: '' });
+    const [whatsappLink, setWhatsappLink] = useState('');
 
     const currentQuestions = QUESTIONS[category] || [];
     const progress = ((step) / currentQuestions.length) * 100;
@@ -177,7 +201,17 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
         const score = answers.reduce((acc, curr) => acc + curr, 0);
         const level = getScoreLevel(score);
         const resultLabel = calculateResult().label;
-        const feedbackMessage = FEEDBACK_MESSAGES[category][level];
+
+        // Acceso seguro al feedback con valor por defecto para depuración
+        const defaultFeedback = "Gracias por completar el triaje. Su resultado está siendo procesado.";
+        const feedbackMessage = FEEDBACK_MESSAGES[category]?.[level] || defaultFeedback;
+
+        console.log("Enviando Feedback:", {
+            categoria: category,
+            nivel: level,
+            longitud: feedbackMessage.length,
+            texto: feedbackMessage.substring(0, 50) + "..."
+        });
 
         // Mensaje para WhatsApp
         const message = `Hola Psic. Cristian, acabo de realizar el *Triaje Virtual* en su sitio web.\n\n` +
@@ -192,6 +226,9 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/573014975393?text=${encodedMessage}`;
 
+        // Guardar URL para el botón manual
+        setWhatsappLink(whatsappUrl);
+
         // Datos para la API de automatización (Google Sheets + Email)
         const automationData = {
             formType: 'triaje' as const,
@@ -205,27 +242,18 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
         };
 
         try {
-            // Enviar a API de automatización
             await fetch("/api/automation", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(automationData)
             });
-
+            // Éxito: Cambiamos estado para mostrar el botón de WhatsApp
             setFormStatus('success');
-
-            // Abrir WhatsApp después de asegurar el envío exitoso
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-                onClose();
-            }, 2000);
 
         } catch (error) {
             console.error("Error enviando datos:", error);
-            // Intentar abrir WhatsApp al menos si falla la base de datos
-            window.open(whatsappUrl, '_blank');
-            setFormStatus('success'); // Mostramos éxito igual para no frustrar al usuario
-            setTimeout(() => onClose(), 2000);
+            // Incluso si falla la API, permitimos ir a WhatsApp
+            setFormStatus('success');
         }
     };
 
@@ -311,52 +339,79 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
                                 animate={{ opacity: 1, y: 0 }}
                                 className="text-center relative z-10"
                             >
-                                <h2 className="text-3xl font-light mb-6 text-white tracking-tighter">Análisis Finalizado</h2>
-                                <p className="text-gray-400 mb-10 max-w-xl mx-auto text-sm sm:text-base font-light leading-relaxed">
-                                    Hemos generado un reporte preliminar.
-                                    <br /><br />
-                                    <span className="text-emerald-400 font-medium italic">Se enviará una copia automática a tu correo electrónico</span> para seguimiento.
-                                </p>
+                                {formStatus === 'success' ? (
+                                    <div className="text-center space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                                        <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                                            <svg className="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-white">¡Informe Enviado!</h3>
+                                        <p className="text-gray-300 text-sm">
+                                            Hemos enviado tu análisis al correo.<br />
+                                            Para finalizar, envía tu resultado por WhatsApp.
+                                        </p>
 
-                                <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6">
-                                    <input
-                                        required
-                                        type="text"
-                                        placeholder="NOMBRE COMPLETO"
-                                        value={formData.name}
-                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-terracota transition-colors text-white tracking-widest text-[10px] font-light"
-                                    />
-                                    <input
-                                        required
-                                        type="email"
-                                        placeholder="CORREO PARA EL REPORTE"
-                                        value={formData.email}
-                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                        className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-terracota transition-colors text-white tracking-widest text-[10px] font-light"
-                                    />
-                                    <input
-                                        required
-                                        type="tel"
-                                        placeholder="WHATSAPP DE CONTACTO"
-                                        value={formData.whatsapp}
-                                        onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                                        className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-terracota transition-colors text-white tracking-widest text-[10px] font-light"
-                                    />
-                                    <div className="pt-6">
-                                        <button
-                                            disabled={formStatus === 'submitting' || formStatus === 'success'}
-                                            className="w-full py-5 rounded-full bg-white text-black font-bold text-[10px] uppercase tracking-[0.3em] hover:bg-terracota hover:text-white transition-all duration-700 disabled:opacity-50"
+                                        <a
+                                            href={whatsappLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            onClick={() => setTimeout(onClose, 1000)}
+                                            className="block w-full py-4 rounded-full bg-[#25D366] text-white font-bold text-sm uppercase tracking-widest hover:bg-[#128C7E] transition-all shadow-lg shadow-emerald-900/20 transform hover:scale-105 select-none"
                                         >
-                                            {formStatus === 'submitting' ? 'PROCESANDO...' : formStatus === 'success' ? '¡ENVIADO! REVISA TU CORREO' : 'OBTENER ANÁLISIS Y CONTACTAR'}
-                                        </button>
+                                            CONTINUAR EN WHATSAPP →
+                                        </a>
                                     </div>
-                                </form>
+                                ) : (
+                                    <>
+                                        <h2 className="text-3xl font-light mb-6 text-white tracking-tighter">Análisis Finalizado</h2>
+                                        <p className="text-gray-400 mb-10 max-w-xl mx-auto text-sm sm:text-base font-light leading-relaxed">
+                                            Hemos generado un reporte preliminar.
+                                            <br /><br />
+                                            <span className="text-emerald-400 font-medium italic">Se enviará una copia automática a tu correo electrónico</span> para seguimiento.
+                                        </p>
+
+                                        <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6">
+                                            <input
+                                                required
+                                                type="text"
+                                                placeholder="NOMBRE COMPLETO"
+                                                value={formData.name}
+                                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                                className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-terracota transition-colors text-white tracking-widest text-[10px] font-light"
+                                            />
+                                            <input
+                                                required
+                                                type="email"
+                                                placeholder="CORREO PARA EL REPORTE"
+                                                value={formData.email}
+                                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-terracota transition-colors text-white tracking-widest text-[10px] font-light"
+                                            />
+                                            <input
+                                                required
+                                                type="tel"
+                                                placeholder="WHATSAPP DE CONTACTO"
+                                                value={formData.whatsapp}
+                                                onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                                                className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-terracota transition-colors text-white tracking-widest text-[10px] font-light"
+                                            />
+                                            <div className="pt-6">
+                                                <button
+                                                    disabled={formStatus === 'submitting'}
+                                                    className="w-full py-5 rounded-full bg-white text-black font-bold text-[10px] uppercase tracking-[0.3em] hover:bg-terracota hover:text-white transition-all duration-700 disabled:opacity-50"
+                                                >
+                                                    {formStatus === 'submitting' ? 'PROCESANDO...' : 'OBTENER ANÁLISIS Y CONTACTAR'}
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </>
+                                )}
                             </motion.div>
                         )}
                     </div>
                 </motion.div>
-            </motion.div>
-        </AnimatePresence>
+            </motion.div >
+        </AnimatePresence >
     );
 };

@@ -30,9 +30,35 @@ interface Therapy {
 
 const therapies: Therapy[] = [
     {
-        id: "ninos",
-        title: "Psicoterapia Infantil",
-        subtitle: "El lenguaje del juego y la creatividad",
+        id: "psicoterapia-individual",
+        title: "Psicoterapia individual",
+        subtitle: "Ansiedad, depresión y crisis emocional",
+        color: "from-blue-400 to-indigo-500",
+        bgClass: "bg-cat-adult/10",
+        icon: (
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+        ),
+        psychoanalyticFocus: {
+            title: "Atención Psicológica Adultos",
+            description: "Atención psicológica para adultos que presentan ansiedad, estrés, depresión, crisis emocionales, dificultades laborales o personales. Ideal para quienes buscan terapia psicológica en Medellín con acompañamiento profesional.",
+            points: [
+                { title: "Ansiedad y Estrés", desc: "Tratamiento efectivo para ataques de pánico y ansiedad generalizada." },
+                { title: "Depresión", desc: "Acompañamiento profesional para superar estados depresivos y recuperar el sentido vital." }
+            ]
+        },
+        complementaryTools: {
+            title: "Abordaje Terapéutico",
+            points: [
+                { title: "Escucha Activa", desc: "Un espacio libre de juicios para elaborar el malestar." }
+            ]
+        }
+    },
+    {
+        id: "infantil-adolescentes",
+        title: "Psicología infantil y adolescentes",
+        subtitle: "Dificultades emocionales y conductuales",
         color: "from-emerald-400 to-teal-500",
         bgClass: "bg-cat-kids/10",
         icon: (
@@ -41,51 +67,48 @@ const therapies: Therapy[] = [
             </svg>
         ),
         psychoanalyticFocus: {
-            title: "Desde el Psicoanálisis",
-            description: "El niño a menudo refleja situaciones no resueltas en la familia. Nuestro enfoque escucha lo que el niño tiene para decir a través de sus propios medios.",
+            title: "Intervención Especializada",
+            description: "Intervención psicológica especializada para niños y adolescentes, abordando dificultades emocionales, conductuales, escolares y familiares, en coordinación con padres y cuidadores.",
             points: [
-                { title: "Terapia de Juego", desc: "Así como los adultos hablan, los niños juegan. El juego es su manera natural de expresar miedos y deseos." },
-                { title: "El Dibujo", desc: "A través del arte, el niño da forma a su mundo interior y ordena sus emociones." }
+                { title: "Problemas de Conducta", desc: "Manejo de límites y agresividad en el entorno familiar y escolar." },
+                { title: "TDAH y Autismo", desc: "Evaluación y acompañamiento en procesos de neurodesarrollo." }
             ]
         },
         complementaryTools: {
-            title: "Herramientas de Apoyo",
+            title: "Orientación a Padres",
             points: [
-                { title: "Orientación a Padres", desc: "Trabajamos con ustedes para fortalecer su rol y mejorar la dinámica en casa, convirtiéndolos en aliados del proceso." }
+                { title: "Crianza Respetuosa", desc: "Herramientas para fortalecer el vínculo y la autoridad." }
             ]
         }
     },
     {
-        id: "adolescentes",
-        title: "Adolescentes y Jóvenes",
-        subtitle: "Identidad, cambios y nuevos caminos",
-        color: "from-violet-400 to-purple-500",
-        bgClass: "bg-cat-teen/10",
+        id: "pareja",
+        title: "Terapia de pareja",
+        subtitle: "Comunicación y resolución de conflictos",
+        color: "from-rose-400 to-pink-500",
+        bgClass: "bg-cat-couples/10",
         icon: (
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-            </svg>
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
         ),
         psychoanalyticFocus: {
-            title: "Desde el Psicoanálisis",
-            description: "La adolescencia es un despertar intenso. Acompañamos al joven en la construcción de su propia identidad, separada de las expectativas externas.",
+            title: "Vínculo y Afecto",
+            description: "Espacio terapéutico para mejorar la comunicación, resolver conflictos y fortalecer el vínculo afectivo. Servicio de terapia de pareja en Medellín presencial y virtual.",
             points: [
-                { title: "Espacio de Escucha", desc: "Ofrecemos un lugar seguro para poner en palabras la angustia, evitando que se transforme en conductas impulsivas." },
-                { title: "Flexibilidad", desc: "Adaptamos el encuadre para que el joven se sienta cómodo, priorizando el vínculo y la confianza." }
+                { title: "Crisis de Pareja", desc: "Superación de infidelidades, celos y monotonía." },
+                { title: "Comunicación", desc: "Herramientas para diálogos constructivos y empáticos." }
             ]
         },
         complementaryTools: {
-            title: "Herramientas de Apoyo",
+            title: "Objetivos",
             points: [
-                { title: "Terapia Narrativa", desc: "Ayudamos a reescribir su historia personal, alejándose de etiquetas limitantes." },
-                { title: "Manejo Emocional", desc: "Estrategias prácticas para regular emociones intensas cuando es necesario." }
+                { title: "Reconexión", desc: "Recuperar la intimidad y el proyecto común." }
             ]
         }
     },
     {
         id: "familia",
-        title: "Terapia Familiar",
-        subtitle: "Sanando vínculos y estructuras",
+        title: "Terapia familiar",
+        subtitle: "Armonía y convivencia en el hogar",
         color: "from-indigo-400 to-blue-500",
         bgClass: "bg-cat-family/10",
         icon: (
@@ -94,64 +117,64 @@ const therapies: Therapy[] = [
             </svg>
         ),
         psychoanalyticFocus: {
-            title: "Desde el Psicoanálisis",
-            description: "El malestar de un miembro suele señalar algo en el grupo familiar. Trabajamos para entender y modificar esas dinámicas profundas.",
+            title: "Dinámica Familiar",
+            description: "Acompañamiento a familias que atraviesan crisis, conflictos o procesos de adaptación, fortaleciendo la dinámica familiar y la convivencia.",
             points: [
-                { title: "Historia Familiar", desc: "Identificamos patrones y temas que se repiten entre generaciones para poder transformarlos." }
+                { title: "Resolución de Conflictos", desc: "Gestión de peleas y malentendidos entre miembros." }
             ]
         },
         complementaryTools: {
-            title: "Herramientas de Apoyo",
+            title: "Apoyo",
             points: [
-                { title: "Enfoque Sistémico", desc: "Visualizamos las alianzas y roles dentro de la familia para mejorar la comunicación y el equilibrio." }
+                { title: "Ciclos Vitales", desc: "Adaptación a cambios: duelos, separaciones, mudanzas." }
             ]
         }
     },
     {
-        id: "pareja",
-        title: "Terapia de Pareja",
-        subtitle: "Construyendo un amor real y respetuoso",
-        color: "from-rose-400 to-pink-500",
-        bgClass: "bg-cat-couples/10",
+        id: "virtual",
+        title: "Atención psicológica virtual",
+        subtitle: "Terapia online efectiva y segura",
+        color: "from-violet-400 to-purple-500",
+        bgClass: "bg-cat-teen/10",
         icon: (
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
         ),
         psychoanalyticFocus: {
-            title: "Desde el Psicoanálisis",
-            description: "Más allá del ideal romántico, buscamos que cada uno pueda amar al otro tal como es, respetando sus diferencias.",
+            title: "Terapia Online Global",
+            description: "Terapia psicológica online con la misma efectividad que la modalidad presencial, ideal para personas fuera de Medellín o con limitaciones de tiempo.",
             points: [
-                { title: "Dinámicas Inconscientes", desc: "Exploramos cómo las expectativas personales influyen en la relación y cómo salir de los conflictos repetitivos." }
+                { title: "Accesibilidad", desc: "Conéctate desde cualquier lugar de Colombia o el mundo." }
             ]
         },
         complementaryTools: {
-            title: "Herramientas de Apoyo",
+            title: "Plataformas",
             points: [
-                { title: "Gestión de Conflictos", desc: "Técnicas prácticas para comunicarse mejor y desactivar discusiones antes de que escalen." },
-                { title: "Seguridad Emocional", desc: "Fomentamos un vínculo seguro donde ambos se sientan escuchados y valorados." }
+                { title: "Seguridad", desc: "Sesiones privadas por Google Meet o la plataforma de su elección." }
             ]
         }
     },
     {
-        id: "burnout",
-        title: "Burnout y Estrés Laboral",
-        subtitle: "Recuperar el bienestar y el deseo",
+        id: "burnout-estres",
+        title: "Psicólogo para estrés y burnout en Medellín",
+        subtitle: "Recuperar el bienestar laboral",
         color: "from-emerald-500 to-green-600",
         bgClass: "bg-cat-burnout/10",
         icon: (
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" /></svg>
         ),
         psychoanalyticFocus: {
-            title: "Desde el Psicoanálisis",
-            description: "El agotamiento suele venir de una autoexigencia desmedida. Ayudamos a entender a quién tratamos de complacer a costa de nuestra salud.",
+            title: "Salud Mental Laboral",
+            description: "El burnout laboral y el estrés crónico afectan la salud mental y física. La psicoterapia permite comprender el origen del desgaste emocional y construir herramientas para mejorar la calidad de vida personal y profesional.",
             points: [
-                { title: "Límites Saludables", desc: "Trabajamos en poner freno a la presión interna por 'rendir siempre más'." }
+                { title: "Agotamiento", desc: "Manejo del cansancio emocional y mental extremo." }
             ]
         },
         complementaryTools: {
-            title: "Herramientas de Apoyo",
+            title: "Recuperación",
             points: [
-                { title: "Reconexión con Valores", desc: "Ayudamos a recordar qué es realmente importante para ti, más allá del trabajo." },
-                { title: "Mindfulness", desc: "Técnicas para reducir la ansiedad inmediata y recuperar la calma." }
+                { title: "Equilibrio", desc: "Balance entre vida laboral y personal." }
             ]
         }
     },
@@ -165,47 +188,16 @@ const therapies: Therapy[] = [
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
         ),
         psychoanalyticFocus: {
-            title: "Desde el Psicoanálisis",
-            description: "A menudo buscamos en la pantalla algo que nos complete, pero esa satisfacción nunca llega. Trabajamos para tolerar esa 'falta' sin angustia inmediata.",
-            points: [
-                { title: "Del Scroll al Deseo", desc: "Pasar de consumir contenido pasivamente a crear y vivir tu propia vida." },
-                { title: "Habitar el Vacío", desc: "Aprender a estar con uno mismo sin la necesidad de tapar el silencio con notificaciones." }
-            ]
-        },
-        complementaryTools: {
             title: "Higiene Digital",
+            description: "Tratamiento pionero para la adicción al celular, redes sociales y desconexión digital.",
             points: [
-                { title: "Espacios Libres de Tech", desc: "Establecer zonas sagradas (como la mesa o el dormitorio) para recuperar la presencia real." },
-                { title: "Límites Estructurales", desc: "Recuperar el control sobre el dispositivo en lugar de que este controle tu tiempo." }
-            ]
-        }
-    },
-    {
-        id: "alta-gerencia",
-        title: (
-            <>
-                Consultoría Psicoanalítica
-                <span className="block text-xl opacity-90 mt-1">Alta Gerencia</span>
-            </>
-        ),
-        subtitle: "Estrategia mental para líderes",
-        color: "from-amber-400 to-orange-500",
-        bgClass: "bg-cat-exec/10",
-        icon: (
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-        ),
-        psychoanalyticFocus: {
-            title: "Enfoque Consultivo",
-            description: "No es una terapia tradicional. Es un espacio para analizar la soledad del mando y las dinámicas de poder en la organización.",
-            points: [
-                { title: "Mundo Interno y Liderazgo", desc: "Cómo tu personalidad influye en tus decisiones y en tu equipo." },
-                { title: "Análisis Institucional", desc: "Entender la cultura de la empresa y sus defensas ante la ansiedad." }
+                { title: "Dependencia", desc: "Superar la ansiedad por estar desconectado." }
             ]
         },
         complementaryTools: {
-            title: "Formato",
+            title: "Estrategias",
             points: [
-                { title: "Consultoría Ejecutiva", desc: "Sesiones enfocadas en desbloquear el potencial estratégico y personal." }
+                { title: "Desconexión", desc: "Espacios libres de pantallas." }
             ]
         }
     }
@@ -239,10 +231,10 @@ export default function TerapiasPage() {
                         className="text-center mb-16"
                     >
                         <h1 className="text-4xl md:text-6xl font-bold font-serif mb-6 text-gradient">
-                            Enfoques Terapéuticos
+                            Servicios psicológicos en Medellín
                         </h1>
                         <p className="text-xl text-gray-400 max-w-2xl mx-auto font-light">
-                            Soluciones clínicas de alta especialidad adaptadas a cada etapa y necesidad.
+                            Atención profesional presencial y virtual adaptada a tus necesidades.
                         </p>
                     </motion.div>
 

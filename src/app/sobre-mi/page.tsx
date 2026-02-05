@@ -17,12 +17,9 @@ export default function SobreMiPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center mb-16"
                     >
-                        <h1 className="text-4xl md:text-6xl font-bold font-serif mb-4 text-gradient">
-                            Cristian Morales Velásquez
+                        <h1 className="text-3xl md:text-5xl font-bold font-serif mb-4 text-gradient">
+                            Cristian Morales Velásquez – Psicólogo en Medellín
                         </h1>
-                        <p className="text-xl md:text-2xl text-emerald-400 font-light tracking-wide">
-                            Psicólogo
-                        </p>
                     </motion.div>
 
                     <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -49,11 +46,11 @@ export default function SobreMiPage() {
                             className="space-y-8 text-gray-300 leading-relaxed font-light text-lg"
                         >
                             <p>
-                                Soy psicólogo, egresado de la <strong>Universidad Católica Luis Amigó</strong>, con más de diez años de experiencia en el ejercicio profesional de la psicología clínica y psicosocial. Mi práctica clínica se orienta por el <span className="text-emerald-300 font-medium">psicoanálisis de enseñanza lacaniana</span>, desde una ética de la escucha que privilegia la singularidad de cada sujeto y el lugar de la palabra.
+                                Soy psicólogo clínico en Medellín, con más de 13 años de experiencia en el acompañamiento psicológico de personas, familias y comunidades. Mi práctica se caracteriza por un enfoque profesional, ético y comprometido con el bienestar emocional de cada paciente.
                             </p>
 
                             <p>
-                                He desarrollado de manera sostenida mi práctica clínica privada, acompañando a niños, niñas, adolescentes, adultos, parejas y familias, que consultan por angustia, malestar subjetivo, conflictos vinculares, crisis vitales y preguntas sobre su posición en la vida personal, afectiva y laboral. El trabajo clínico que propongo no se apoya en soluciones estandarizadas, sino en un <strong>espacio de escucha rigurosa, confidencial y respetuosa</strong> del tiempo de cada proceso.
+                                Trabajo desde una perspectiva integral, adaptando la intervención a las necesidades individuales y promoviendo procesos terapéuticos claros, respetuosos y efectivos.
                             </p>
 
                             <p>

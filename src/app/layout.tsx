@@ -20,9 +20,20 @@ const merriweather = Merriweather({
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://Moralespsicologia.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Psic. Cristian Morales Velásquez",
-  description: "psicoterapia privada, No seas el síntoma de otros.",
-  keywords: ["psicólogo Medellín", "psicoterapia", "terapia de pareja", "psicología infantil", "estrés laboral", "burnout", "Cristian Morales", "salud mental"],
+  title: "Psicólogo en Medellín | Terapia psicológica presencial y virtual",
+  description: "Psicólogo en Medellín especializado en ansiedad, estrés, burnout, adolescentes, terapia de pareja y familia. Atención presencial y virtual. Agenda tu cita.",
+  keywords: [
+    "psicólogo en Medellín",
+    "psicólogo Medellín",
+    "terapia psicológica Medellín",
+    "psicoterapia Medellín",
+    "psicólogo clínico Medellín",
+    "terapia de pareja Medellín",
+    "psicólogo infantil Medellín",
+    "psicólogo ansiedad Medellín",
+    "atención psicológica virtual",
+    "consulta psicológica Medellín"
+  ],
   authors: [{ name: "Psic. Cristian Morales Velásquez" }],
   creator: "Psic. Cristian Morales Velásquez",
   metadataBase: new URL(baseUrl),
@@ -31,8 +42,8 @@ export const metadata: Metadata = {
     locale: "es_CO",
     url: baseUrl,
     siteName: "Psic. Cristian Morales Velásquez",
-    title: "Psic. Cristian Morales Velásquez",
-    description: "psicoterapia privada, No seas el síntoma de otros.",
+    title: "Psicólogo en Medellín | Terapia psicológica presencial y virtual",
+    description: "Psicólogo en Medellín especializado en ansiedad, estrés, burnout, adolescentes, terapia de pareja y familia. Atención presencial y virtual. Agenda tu cita.",
     images: [
       {
         url: "/og-image.png",
@@ -44,8 +55,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Psic. Cristian Morales Velásquez",
-    description: "psicoterapia privada, No seas el síntoma de otros.",
+    title: "Psicólogo en Medellín | Terapia psicológica presencial y virtual",
+    description: "Psicólogo en Medellín especializado en ansiedad, estrés, burnout, adolescentes, terapia de pareja y familia. Atención presencial y virtual. Agenda tu cita.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -79,10 +90,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "MedicalBusiness",
+              "@type": "Psychologist",
               "name": "Psic. Cristian Morales Velásquez",
               "alternateName": "MVP - Morales Velásquez Psicólogo",
-              "description": "Consultorio de psicología clínica privada en Medellín. Especialista en psicoanálisis y salud mental para niños, adolescentes, adultos, parejas y alta gerencia. Atendemos ansiedad, depresión, burnout, conflictos familiares y adicciones digitales (nomofobia).",
+              "description": "Psicólogo clínico en Medellín especializado en ansiedad, estrés, burnout, adolescentes, terapia de pareja y familia. Atención presencial y virtual.",
               "image": `${baseUrl}/og-image.png`,
               "url": baseUrl,
               "telephone": "+57-301-497-5393",
@@ -96,6 +107,15 @@ export default function RootLayout({
                 "postalCode": "050030",
                 "addressCountry": "CO"
               },
+              "areaServed": [
+                { "@type": "City", "name": "Medellín" },
+                { "@type": "City", "name": "Bello" },
+                { "@type": "City", "name": "Envigado" },
+                { "@type": "City", "name": "Sabaneta" },
+                { "@type": "City", "name": "Itagüí" },
+                { "@type": "City", "name": "La Estrella" },
+                { "@type": "AdministrativeArea", "name": "Antioquia" }
+              ],
               "geo": {
                 "@type": "GeoCoordinates",
                 "latitude": 6.2407,
@@ -109,129 +129,81 @@ export default function RootLayout({
                   "closes": "20:00"
                 }
               ],
-              "areaServed": [
-                { "@type": "City", "name": "Medellín" },
-                { "@type": "City", "name": "Bello" },
-                { "@type": "City", "name": "Envigado" },
-                { "@type": "City", "name": "Sabaneta" },
-                { "@type": "City", "name": "Rionegro" }
-              ],
               "founder": {
                 "@type": "Person",
                 "name": "Cristian Morales Velásquez",
-                "jobTitle": "Psicólogo Clínico, Social y Consultor Corporativo",
-                "description": "Psicólogo con más de 10 años de experiencia. Especialista en trabajo clínico y comunitario con poblaciones vulnerables (Amazonía, NNA), Derechos Humanos y gestión de proyectos sociales. Experto en psicoanálisis, manejo de crisis y consultoría estratégica para empresas. Experiencia significativa en Taraira y el Gran Resguardo Indígena Yaigojé Apaporis.",
-                "alumniOf": {
-                  "@type": "CollegeOrUniversity",
-                  "name": "Universidad Católica Luis Amigó"
-                },
+                "jobTitle": "Psicólogo Clínico",
+                "url": baseUrl,
                 "sameAs": [
                   "https://www.behance.net/cristianmoralesve",
-                  "https://www.instagram.com/ellocom"
-                ],
-                "knowsAbout": [
-                  "Psicología Clínica Infantil",
-                  "Terapia de Pareja y Rupturas",
-                  "Psicología Comunitaria",
-                  "Intervención en Crisis",
-                  "Poblaciones Vulnerables",
-                  "Derechos Humanos",
-                  "Orientación Vocacional",
-                  "Manejo de Estrés y Ansiedad",
-                  "Salud Mental Corporativa",
-                  "Cosmovisión Indígena"
+                  "https://www.instagram.com/ellocom",
+                  "https://www.linkedin.com/in/cristianmoralesvelasquez/"
                 ]
               },
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "Catálogo de Servicios Psicológicos y Empresariales",
+                "name": "Servicios Psicológicos",
                 "itemListElement": [
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Psicoterapia Infantil y Adolescente",
-                      "description": "Atención especializada para niños y jóvenes. Manejo de emociones, conducta, bullying y orientación vocacional para proyecto de vida."
+                      "name": "Psicoterapia Individual",
+                      "description": "Atención psicológica para adultos que presentan ansiedad, estrés, depresión, crisis emocionales."
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Terapia de Pareja y Manejo de Rupturas",
-                      "description": "Espacio para resolver conflictos, superar infidelidades, mejorar la comunicación o acompañar procesos de separación saludables."
+                      "name": "Terapia de Pareja",
+                      "description": "Espacio terapéutico para mejorar la comunicación, resolver conflictos y fortalecer el vínculo afectivo."
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Clínica de Ansiedad, Estrés y Angustia",
-                      "description": "Tratamiento profundo para ataques de pánico, estrés crónico, duelo y depresión. Enfoque psicoanalítico."
+                      "name": "Psicología Infantil y Adolescentes",
+                      "description": "Intervención psicológica especializada para niños y adolescentes."
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Servicios para Empresas y Bienestar Corporativo",
-                      "description": "Consultoría en salud mental laboral, prevención de riesgo psicosocial (Batería), talleres de manejo de estrés y liderazgo."
+                      "name": "Terapia Familiar",
+                      "description": "Acompañamiento a familias que atraviesan crisis o conflictos."
                     }
                   },
                   {
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
-                      "name": "Programa Especializado en Nomofobia",
-                      "description": "Tratamiento pionero para la adicción al celular, redes sociales y desconexión digital."
-                    }
-                  },
-                  {
-                    "@type": "Offer",
-                    "itemOffered": {
-                      "@type": "Service",
-                      "name": "Consultoría en Proyectos Sociales",
-                      "description": "Diseño y ejecución de intervenciones comunitarias con poblaciones vulnerables y enfoque de derechos."
+                      "name": "Atención Psicológica Virtual",
+                      "description": "Terapia psicológica online con la misma efectividad que la modalidad presencial."
                     }
                   }
                 ]
               },
-              "medicalSpecialty": ["Psychology", "Community Psychology", "Occupational Medicine"],
-              "knowsAbout": [
-                "Psicoterapia Infantil",
-                "Terapia de Pareja",
-                "Ansiedad y Depresión",
-                "Orientación Vocacional",
-                "Psicología Comunitaria",
-                "Burnout Laboral",
-                "Nomofobia",
-                "Trabajo Social",
-                "terapia en jovenes",
-                "terapia en adultos",
-                "orientacion vocacional"
+              "medicalSpecialty": [
+                {
+                  "@type": "MedicalSpecialty",
+                  "name": "Psicología Clínica",
+                  "relevantSpecialty": [
+                    { "@type": "MedicalSpecialty", "name": "Psychiatry" },
+                    { "@type": "MedicalSpecialty", "name": "Pediatric" }
+                  ]
+                }
               ],
               "availableService": {
                 "@type": "MedicalProcedure",
-                "name": "Consulta Psicológica Prioritaria",
+                "name": "Consulta Psicológica",
                 "procedureType": "Noninvasive",
                 "status": "http://schema.org/Active"
               },
               "isAcceptingNewPatients": true,
-              "ethicsPolicy": "https://moralespsicologia.vercel.app/etica",
-              "slogan": "Ética, Escucha y Resultados. Tu salud mental en manos expertas.",
-              "review": {
-                "@type": "Review",
-                "reviewRating": {
-                  "@type": "Rating",
-                  "ratingValue": "5",
-                  "bestRating": "5"
-                },
-                "author": {
-                  "@type": "Person",
-                  "name": "Paciente Verificado"
-                },
-                "reviewBody": "Profesional altamente ético, confiable y efectivo. Recomendado para procesos profundos y serios."
-              }
+              "ethicsPolicy": "https://moralespsicologia.vercel.app/etica"
             })
           }}
         />

@@ -74,25 +74,37 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-hero font-bold mb-8 text-luxury-olive leading-tight tracking-tighter"
+          className="text-3xl md:text-5xl font-bold mb-8 text-luxury-olive leading-tight tracking-tighter max-w-4xl mx-auto"
         >
-          No seas el síntoma de otros
+          Psicólogo en Medellín – Atención psicológica profesional y humana
         </motion.h1>
 
-        <p className="max-w-2xl mx-auto text-gray-400 text-body-responsive mb-12 leading-relaxed font-light">
-          Psicoterapia privada de alta especialidad en Medellín. <br className="hidden md:block" />
-          Un encuentro con la verdad de su deseo.
-        </p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="max-w-3xl mx-auto text-gray-300 text-base md:text-lg mb-12 leading-relaxed font-light space-y-6 text-left md:text-center"
+        >
+          <p>
+            Soy psicólogo en Medellín, con amplia experiencia en atención psicológica para adultos, adolescentes y niños, ofreciendo terapia psicológica presencial y virtual. Mi enfoque está orientado a acompañar procesos de ansiedad, estrés, burnout laboral, conflictos emocionales y dificultades en las relaciones, desde una mirada profesional, ética y profundamente humana.
+          </p>
+          <p>
+            Si estás buscando psicoterapia en Medellín, aquí encontrarás un espacio seguro para trabajar tu bienestar emocional. Atiendo personas que desean mejorar su salud mental, fortalecer sus recursos personales y construir cambios reales y sostenibles en su vida.
+          </p>
+          <p>
+            La consulta psicológica se realiza en Medellín, Antioquia, y también de manera virtual para Colombia y el exterior, manteniendo la misma calidad clínica y confidencialidad profesional.
+          </p>
+        </motion.div>
 
         <div className="flex flex-col items-center justify-center">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsBookingOpen(true)}
-            className="btn-luxury w-full sm:w-80 shadow-2xl shadow-solar/20 group relative overflow-hidden py-5 !text-white touch-target touch-manipulation focus-ring"
-            aria-label="Abrir formulario de reserva virtual"
+            className="btn-luxury w-full sm:w-auto px-8 shadow-2xl shadow-solar/20 group relative overflow-hidden py-5 !text-white touch-target touch-manipulation focus-ring"
+            aria-label="Agenda tu primera sesión"
           >
-            <span className="relative z-10 text-white">Atención virtual con precios especiales</span>
+            <span className="relative z-10 text-white font-semibold text-lg">Agenda tu primera sesión</span>
             <div
               className="absolute inset-0 bg-gradient-to-r from-solar/0 via-white/20 to-solar/0 translate-x-[-100%] animate-shine"
             />
@@ -102,9 +114,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="mt-8 text-luxury-olive/60 text-xl md:text-2xl font-light tracking-wide max-w-3xl text-center leading-relaxed"
+            className="mt-8 text-luxury-olive/60 text-lg md:text-xl font-light tracking-wide max-w-3xl text-center leading-relaxed"
           >
-            Realiza el <span className="text-luxury-olive font-bold text-3xl md:text-4xl block sm:inline mt-2 sm:mt-0">triaje virtual</span> y ten un <span className="text-solar font-bold text-4xl md:text-5xl block sm:inline mt-2 sm:mt-0">40% de descuento</span> en tu primera cita. Presencial o Virtual.
+            Da el primer paso hacia tu <span className="text-solar font-bold">bienestar emocional</span>.
           </motion.p>
         </div>
       </section>

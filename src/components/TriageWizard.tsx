@@ -311,7 +311,7 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
                                         exit={{ y: -20, opacity: 0 }}
                                         className="min-h-[200px] flex flex-col justify-center"
                                     >
-                                        <h2 className="text-2xl sm:text-3xl font-light mb-12 text-white leading-tight tracking-tight">
+                                        <h2 className="text-3xl sm:text-4xl font-normal mb-12 text-white leading-tight tracking-tight">
                                             {currentQuestions[step]?.text}
                                         </h2>
 
@@ -326,7 +326,7 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
                                                     onClick={() => handleAnswer(opt.val)}
                                                     className="p-5 rounded-2xl border border-white/[0.03] bg-white/[0.01] hover:bg-white/[0.05] hover:border-white/10 transition-all text-left group"
                                                 >
-                                                    <span className="text-gray-400 group-hover:text-white transition-colors">{opt.label}</span>
+                                                    <span className="text-gray-200 text-base sm:text-lg font-medium group-hover:text-white transition-colors">{opt.label}</span>
                                                 </button>
                                             ))}
                                         </div>
@@ -365,10 +365,10 @@ export const TriageWizard: React.FC<TriageWizardProps> = ({ category, onClose })
                                 ) : (
                                     <>
                                         <h2 className="text-3xl font-light mb-6 text-white tracking-tighter">Análisis Finalizado</h2>
-                                        <p className="text-gray-400 mb-10 max-w-xl mx-auto text-sm sm:text-base font-light leading-relaxed">
+                                        <p className="text-gray-100 mb-10 max-w-xl mx-auto text-base sm:text-lg font-normal leading-relaxed">
                                             Hemos generado un reporte preliminar.
                                             <br /><br />
-                                            <span className="text-emerald-400 font-medium italic">Se enviará una copia automática a tu correo electrónico</span> para seguimiento.
+                                            <span className="text-emerald-300 font-medium italic">Se enviará una copia automática a tu correo electrónico</span> para seguimiento.
                                         </p>
 
                                         <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6">

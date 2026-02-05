@@ -84,13 +84,9 @@ export const VirtualBookingForm: React.FC<VirtualBookingFormProps> = ({ onClose 
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={onClose}
-                className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center bg-black/90 backdrop-blur-xl overflow-y-auto overscroll-contain"
+                className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-xl overflow-y-auto overscroll-contain px-4 py-8"
                 style={{
-                    minHeight: 'calc(100vh)',
-                    paddingTop: 'max(1rem, env(safe-area-inset-top))',
-                    paddingBottom: 'max(1rem, env(safe-area-inset-bottom))',
-                    paddingLeft: 'max(1rem, env(safe-area-inset-left))',
-                    paddingRight: 'max(1rem, env(safe-area-inset-right))'
+                    minHeight: '100dvh',
                 }}
             >
                 {/* Modal Container */}
@@ -99,13 +95,13 @@ export const VirtualBookingForm: React.FC<VirtualBookingFormProps> = ({ onClose 
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: 20 }}
                     onClick={(e) => e.stopPropagation()}
-                    className="relative w-full max-w-lg mx-auto z-[110] my-4 sm:my-8"
+                    className="relative w-full max-w-lg mx-auto z-[10000] my-auto"
                 >
                     <div className="bg-metallic-dark rounded-[2.5rem] p-8 md:p-12 relative border border-white/10 shadow-2xl">
                         {/* Botón Cerrar */}
                         <button
                             onClick={onClose}
-                            className="absolute top-8 right-8 text-gray-400 hover:text-white transition-all p-3 z-20 bg-white/5 rounded-full touch-target hover:scale-110"
+                            className="absolute top-6 right-6 sm:top-8 sm:right-8 text-white hover:text-solar transition-all p-3 z-[120] bg-white/10 hover:bg-white/20 rounded-full touch-target hover:scale-110 shadow-lg"
                             aria-label="Cerrar"
                         >
                             <X className="w-6 h-6" />

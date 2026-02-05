@@ -71,7 +71,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://animatedicons.co" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       </head>
-      <body className={`${outfit.variable} ${merriweather.variable} antialiased`}>
+      <body className={`${outfit.variable} ${merriweather.variable} antialiased`} suppressHydrationWarning>
         {/* Structured Data for SEO */}
         <Script
           id="structured-data"
@@ -205,7 +205,10 @@ export default function RootLayout({
                 "Psicología Comunitaria",
                 "Burnout Laboral",
                 "Nomofobia",
-                "Trabajo Social"
+                "Trabajo Social",
+                "terapia en jovenes",
+                "terapia en adultos",
+                "orientacion vocacional"
               ],
               "availableService": {
                 "@type": "MedicalProcedure",
@@ -214,7 +217,7 @@ export default function RootLayout({
                 "status": "http://schema.org/Active"
               },
               "isAcceptingNewPatients": true,
-              "ethicsPolicy": "https://psicologomorales.com/etica",
+              "ethicsPolicy": "https://moralespsicologia.vercel.app/etica",
               "slogan": "Ética, Escucha y Resultados. Tu salud mental en manos expertas.",
               "review": {
                 "@type": "Review",
@@ -241,11 +244,11 @@ export default function RootLayout({
         {/* Global Scripts for Interactive Icons */}
         <Script
           src="https://animatedicons.co/scripts/animated-icons.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
         <Script
           src="https://cdn.lordicon.com/lordicon.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
         <Script id="global-icons-config" strategy="lazyOnload">
           {`

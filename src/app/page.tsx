@@ -115,7 +115,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="max-w-4xl mx-auto text-gray-500 text-xs md:text-sm italic font-light leading-relaxed border-t border-b border-white/5 py-4"
+          className="max-w-4xl mx-auto text-gray-300 text-sm md:text-sm italic font-light leading-relaxed border-t border-b border-white/5 py-4"
         >
           <span className="text-luxury-olive font-medium not-italic uppercase tracking-widest mr-2 text-[10px]">Nota Ética:</span>
           Este triaje es una herramienta de orientación preliminar y no constituye un diagnóstico clínico formal. Su objetivo es identificar la pertinencia de una consulta profesional con el Psic. Cristian Morales.
@@ -125,7 +125,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8, duration: 1 }}
-          className="mt-6 text-gray-300 text-sm md:text-base font-light tracking-wide"
+          className="mt-6 text-gray-200 text-base md:text-base font-light tracking-wide"
         >
           Para comenzar su Triaje, <span className="text-emerald-400 font-medium">haga clic en la tarjeta de abajo</span> que mejor describa su situación actual:
         </motion.p>
@@ -142,7 +142,7 @@ export default function Home() {
               onKeyDown={(e) => e.key === 'Enter' && setActiveTriage('Niños')}
               role="button"
               tabIndex={0}
-              className="h-full bg-metallic-dark p-4 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] flex flex-col justify-end group cursor-pointer relative overflow-hidden group/main focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+              className="h-full bg-metallic-dark p-4 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] flex flex-col justify-between group cursor-pointer relative overflow-hidden group/main focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
             >
               {/* Diseño Lineal Central - Animación condicional: permanente en móvil, hover en desktop */}
               <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-40 transition-all duration-700 scale-50 md:scale-100">
@@ -192,16 +192,18 @@ export default function Home() {
                 </motion.svg>
               </div>
 
-              {/* Icon - responsive */}
-              <div className="mb-auto z-10 w-full flex justify-end">
-                <div className="w-10 h-10 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-emerald-500/5 flex items-center justify-center mb-2 sm:mb-6 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-500">
+              {/* Header: Title and Icon */}
+              <div className="flex justify-between items-start z-10 w-full mb-auto">
+                <h3 className="text-lg sm:text-4xl font-bold text-white tracking-tight max-w-[70%]">Psicoterapia <span className="text-emerald-300">Infantil</span></h3>
+                <div className="w-10 h-10 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-emerald-500/5 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-500">
                   <svg className="w-5 h-5 sm:w-8 sm:h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
               </div>
-              <h3 className="text-base sm:text-4xl font-bold mb-1 sm:mb-4 text-white tracking-tight z-10">Psicoterapia <span className="text-emerald-300">Infantil</span></h3>
-              <p className="text-gray-400 text-[10px] sm:text-lg leading-tight sm:leading-relaxed max-w-sm z-10 block">Constitución psíquica y estructuración del sujeto. Abordaje de los síntomas en la infancia desde la escucha analítica.</p>
+
+              <p className="text-gray-200 text-xs sm:text-lg leading-tight sm:leading-relaxed max-w-sm z-10 block mt-auto">Constitución psíquica y estructuración del sujeto. Abordaje de los síntomas en la infancia desde el juego y la escucha.</p>
+
               <div className="absolute inset-0 flex md:hidden items-center justify-center opacity-20 pointer-events-none z-0">
                 <motion.svg className="w-32 h-32 text-emerald-400/30" viewBox="0 0 100 100" fill="none" stroke="currentColor">
                   <circle cx="50" cy="50" r="30" strokeWidth="1" />
@@ -224,7 +226,7 @@ export default function Home() {
               onKeyDown={(e) => e.key === 'Enter' && setActiveTriage('Adultos')}
               role="button"
               tabIndex={0}
-              className="h-full bg-metallic-dark p-4 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-8 group cursor-pointer transition-all duration-500 relative overflow-hidden group/adult focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+              className="h-full bg-metallic-dark p-4 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] flex flex-col sm:flex-row justify-between sm:items-center gap-2 sm:gap-8 group cursor-pointer transition-all duration-500 relative overflow-hidden group/adult focus:outline-none focus:ring-2 focus:ring-blue-500/50"
             >
               {/* Diseño Lineal Central - LordIcon Adultos */}
               <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-60 transition-all duration-700 z-10 scale-50 md:scale-100">
@@ -238,10 +240,11 @@ export default function Home() {
                 />
               </div>
 
-              <div className="flex-1 z-10">
-                <h3 className="text-base sm:text-2xl font-bold mb-1 sm:mb-2 text-blue-300">Adultos</h3>
-                <p className="text-gray-400 text-[10px] sm:text-xs leading-tight block">Escucha de lo inconsciente, análisis de la repetición y elaboración de los conflictos subjetivos.</p>
+              <div className="flex flex-col h-full sm:h-auto justify-between sm:justify-center z-10 sm:flex-1 w-full">
+                <h3 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 text-blue-300">Adultos</h3>
+                <p className="text-gray-300 text-xs sm:text-xs leading-tight block sm:mt-0">Escucha de lo inconsciente, análisis de la repetición y elaboración de los conflictos subjetivos.</p>
               </div>
+
               <div className="w-10 h-10 sm:w-20 sm:h-20 rounded-full bg-cat-adult/20 flex items-center justify-center group-hover/adult:scale-110 transition-all duration-500 z-10 absolute top-4 right-4 sm:relative sm:top-auto sm:right-auto">
                 <svg className="w-5 h-5 sm:w-8 sm:h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -313,8 +316,8 @@ export default function Home() {
                 </motion.svg>
               </div>
 
-              <h3 className="text-sm sm:text-xl font-bold text-violet-300 z-10">Adolescentes</h3>
-              <p className="text-gray-500 text-[10px] sm:text-xs z-10 block leading-tight mt-1">Identidad, redes y bienestar emocional.</p>
+              <h3 className="text-lg sm:text-xl font-bold text-violet-300 z-10">Adolescentes</h3>
+              <p className="text-gray-300 text-xs sm:text-xs z-10 block leading-tight mt-1">Identidad, redes y bienestar emocional.</p>
               <div className="absolute -bottom-4 -right-4 w-16 sm:w-24 h-16 sm:h-24 bg-cat-teen/20 rounded-full blur-2xl" />
             </div>
           </TiltCard>
@@ -344,8 +347,8 @@ export default function Home() {
                 />
               </div>
 
-              <h3 className="text-sm sm:text-xl font-bold text-rose-300 z-10">Parejas</h3>
-              <p className="text-gray-500 text-[10px] sm:text-xs z-10 block leading-tight mt-1">Análisis de los nudos inconscientes y la repetición en el vínculo.</p>
+              <h3 className="text-lg sm:text-xl font-bold text-rose-300 z-10">Parejas</h3>
+              <p className="text-gray-300 text-xs sm:text-xs z-10 block leading-tight mt-1">Análisis de los nudos inconscientes y la repetición en el vínculo.</p>
               <div className="absolute -bottom-4 -right-4 w-16 sm:w-24 h-16 sm:h-24 bg-cat-couples/20 rounded-full blur-2xl" />
             </div>
           </TiltCard>
@@ -356,7 +359,7 @@ export default function Home() {
               onClick={() => setActiveTriage('Alta Gerencia')}
               className="h-full bg-metallic-dark p-4 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] flex flex-col justify-between group cursor-pointer transition-all duration-500 relative overflow-hidden group/exec"
             >
-              <h3 className="text-sm sm:text-xl font-bold text-amber-300 z-10 pointer-events-none">Alta Gerencia</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-amber-300 z-10 pointer-events-none">Alta Gerencia</h3>
 
               {/* Diseño Central - LordIcon Alta Gerencia */}
               <div className="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-25 group-hover:opacity-80 transition-all duration-700 z-10 scale-50 md:scale-100">
@@ -374,7 +377,7 @@ export default function Home() {
                 <svg className="w-5 h-5 sm:w-8 sm:h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
               </div>
 
-              <p className="text-gray-300 text-[10px] sm:text-xs z-10 pointer-events-none block leading-tight mt-1">Resiliencia corporativa y soledad del líder.</p>
+              <p className="text-gray-200 text-xs sm:text-xs z-10 pointer-events-none block leading-tight mt-1">Resiliencia corporativa y soledad del líder.</p>
 
               <div className="absolute inset-0 bg-cat-exec/5" />
             </div>
@@ -402,8 +405,8 @@ export default function Home() {
                 />
               </div>
 
-              <h3 className="text-sm sm:text-xl font-bold text-indigo-300 z-10">Familia</h3>
-              <p className="text-gray-500 text-[10px] sm:text-xs z-10 block leading-tight mt-1">Dinámicas vinculares y resolución de conflictos.</p>
+              <h3 className="text-lg sm:text-xl font-bold text-indigo-300 z-10">Familia</h3>
+              <p className="text-gray-300 text-xs sm:text-xs z-10 block leading-tight mt-1">Dinámicas vinculares y resolución de conflictos.</p>
               <div className="absolute inset-0 bg-cat-family/5" />
             </div>
           </TiltCard>
@@ -430,8 +433,8 @@ export default function Home() {
                 />
               </div>
 
-              <h3 className="text-sm sm:text-xl font-bold text-emerald-200 z-10">Burnout</h3>
-              <p className="text-gray-500 text-[10px] sm:text-xs z-10 block leading-tight mt-1">Manejo del estrés laboral crónico.</p>
+              <h3 className="text-lg sm:text-xl font-bold text-emerald-200 z-10">Burnout</h3>
+              <p className="text-gray-300 text-xs sm:text-xs z-10 block leading-tight mt-1">Manejo del estrés laboral crónico.</p>
               <div className="absolute -bottom-6 -right-6 w-16 sm:w-24 h-16 sm:h-24 border-[0.5px] border-emerald-500/20 rounded-full" />
             </div>
           </TiltCard>
@@ -492,8 +495,11 @@ export default function Home() {
                 </motion.svg>
               </div>
 
-              <h3 className="text-sm sm:text-xl font-bold text-cyan-200 z-10"><span className="hidden sm:inline">Nomofobia y adicción a internet</span><span className="sm:hidden">Nomofobia</span></h3>
-              <p className="text-gray-500 text-[10px] sm:text-xs z-10 block leading-tight mt-1">Higiene digital y presencia real.</p>
+              <h3 className="text-lg sm:text-xl font-bold text-cyan-200 z-10">
+                Nomofobia
+                <span className="block text-base sm:text-base font-medium opacity-90 text-cyan-200/80">dependencia al internet</span>
+              </h3>
+              <p className="text-gray-300 text-xs sm:text-xs z-10 block leading-tight mt-1">Higiene digital y presencia real.</p>
               <div className="absolute -bottom-4 -right-4 w-12 sm:w-16 h-12 sm:h-16 bg-cat-digital/20 rounded-xl blur-xl" />
             </div>
           </TiltCard>

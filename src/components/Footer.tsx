@@ -21,7 +21,7 @@ export const Footer = () => {
                     <div className="flex flex-col md:flex-row items-center gap-6 md:gap-16">
                         {/* WhatsApp Contact */}
                         <div className="flex items-center gap-4 group">
-                            <span className="text-gray-400 font-light tracking-wider text-sm md:text-base">+57 301 497 5393</span>
+                            <a href="https://wa.me/573014975393" target="_blank" rel="noopener noreferrer" className="text-gray-400 font-light tracking-wider text-sm md:text-base hover:text-emerald-400 transition-colors">+57 301 497 5393</a>
                             <motion.a
                                 href="https://wa.me/573014975393"
                                 target="_blank"
@@ -51,7 +51,7 @@ export const Footer = () => {
 
                         {/* Email Contact */}
                         <div className="flex items-center gap-4 group">
-                            <span className="text-gray-400 font-light tracking-wider text-sm md:text-base">cristianpsicologomed@gmail.com</span>
+                            <a href="mailto:cristianpsicologomed@gmail.com" className="text-gray-400 font-light tracking-wider text-sm md:text-base hover:text-blue-400 transition-colors">cristianpsicologomed@gmail.com</a>
                             <motion.a
                                 href="mailto:cristianpsicologomed@gmail.com"
                                 animate={{

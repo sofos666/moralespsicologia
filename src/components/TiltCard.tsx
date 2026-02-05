@@ -6,12 +6,12 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 export const TiltCard = memo(({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
     const ref = useRef<HTMLDivElement>(null);
 
-    // Use a ref for checking mobile state during events to avoid re-renders
-    const isMobileRef = useRef(false);
+    // Use state for checking mobile to conditionally render styles
+    const [isMobile, setIsMobile] = React.useState(false);
 
     React.useEffect(() => {
         const checkMobile = () => {
-            isMobileRef.current = window.innerWidth < 768;
+            setIsMobile(window.innerWidth < 768);
         };
         checkMobile();
         window.addEventListener('resize', checkMobile);
@@ -32,7 +32,7 @@ export const TiltCard = memo(({ children, className = "" }: { children: React.Re
         if (!ref.current) return;
 
         // Optimization: Don't calculate physics on mobile
-        if (isMobileRef.current) return;
+        if (isMobile) return;
 
         const rect = ref.current.getBoundingClientRect();
         const width = rect.width;
@@ -58,8 +58,8 @@ export const TiltCard = memo(({ children, className = "" }: { children: React.Re
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{
-                rotateY,
-                rotateX,
+                rotateY: isMobile ? 0 : rotateY,
+                rotateX: isMobile ? 0 : rotateX,
                 transformStyle: "preserve-3d",
                 willChange: "transform",
             }}
@@ -67,7 +67,7 @@ export const TiltCard = memo(({ children, className = "" }: { children: React.Re
         >
             <div
                 style={{
-                    transform: "translateZ(50px)",
+                    transform: isMobile ? "none" : "translateZ(50px)",
                     transformStyle: "preserve-3d",
                     backfaceVisibility: "hidden"
                 }}

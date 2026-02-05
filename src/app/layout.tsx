@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: "psicoterapia privada, No seas el síntoma de otros.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Psic. Cristian Morales Velásquez",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Psic. Cristian Morales Velásquez",
     description: "psicoterapia privada, No seas el síntoma de otros.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -83,7 +83,7 @@ export default function RootLayout({
               "name": "Psic. Cristian Morales Velásquez",
               "alternateName": "MVP - Morales Velásquez Psicólogo",
               "description": "Consultorio de psicología clínica privada en Medellín. Especialista en psicoanálisis y salud mental para niños, adolescentes, adultos, parejas y alta gerencia. Atendemos ansiedad, depresión, burnout, conflictos familiares y adicciones digitales (nomofobia).",
-              "image": `${baseUrl}/og-image.jpg`,
+              "image": `${baseUrl}/og-image.png`,
               "url": baseUrl,
               "telephone": "+57-301-497-5393",
               "email": "cristianpsicologomed@gmail.com",

@@ -86,13 +86,8 @@ export default function Home() {
           className="max-w-3xl mx-auto text-gray-300 text-base md:text-lg mb-12 leading-relaxed font-light space-y-6 text-left md:text-center"
         >
           <p>
-            Soy psicólogo en Medellín, con amplia experiencia en atención psicológica para adultos, adolescentes y niños, ofreciendo terapia psicológica presencial y virtual. Mi enfoque está orientado a acompañar procesos de ansiedad, estrés, burnout laboral, conflictos emocionales y dificultades en las relaciones, desde una mirada profesional, ética y profundamente humana.
-          </p>
-          <p>
-            Si estás buscando psicoterapia en Medellín, aquí encontrarás un espacio seguro para trabajar tu bienestar emocional. Atiendo personas que desean mejorar su salud mental, fortalecer sus recursos personales y construir cambios reales y sostenibles en su vida.
-          </p>
-          <p>
-            La consulta psicológica se realiza en Medellín, Antioquia, y también de manera virtual para Colombia y el exterior, manteniendo la misma calidad clínica y confidencialidad profesional.
+            Da el primer paso hacia tu bienestar emocional. Agenda tu primera cita hoy y recibe un{' '}
+            <span className="text-solar font-bold">35% de descuento</span>. Tu salud mental es tu mejor inversión.
           </p>
         </motion.div>
 
@@ -116,7 +111,6 @@ export default function Home() {
             transition={{ delay: 1.2, duration: 0.8 }}
             className="mt-8 text-luxury-olive/60 text-lg md:text-xl font-light tracking-wide max-w-3xl text-center leading-relaxed"
           >
-            Da el primer paso hacia tu <span className="text-solar font-bold">bienestar emocional</span>.
           </motion.p>
         </div>
       </section>
